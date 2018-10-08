@@ -39,24 +39,6 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="http://vicoyu.com/2018/09/14/Node.js%20%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/"/>
-    <id>http://vicoyu.com/2018/09/14/Node.js 基础入门/</id>
-    <published>2018-09-14T02:41:21.862Z</published>
-    <updated>2018-09-17T09:11:47.782Z</updated>
-    
-    <content type="html"><![CDATA[<p>随着HTML规范的完善以及Flash在大趋势上的渐行渐远，JavaScript简直就是扶摇直上九万里，登上了开发大舞台并成为领跑者之一。在这个背景下推出的 Node.js 无疑成为了划时代的产物，让JavaScript能够在Server端上大放异彩。这也就意味着，Node.js成功打破了JavaScript在前后端的职责约束，让其能够与PHP、Python、Ruby并驾齐驱。</p><a id="more"></a><h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><p>Node.js的最初版本由 Ryan Dahl 于 2009年上传至GitHub，是基于Chrome V8引擎的C++项目。众所周知，V8引擎是开源的JavaScript运行时引擎，所以 Ryan Dahl 到底是选择站在巨人的肩膀上，毕竟站得高尿的远，果不其然，凭借V8引擎的高性能以及将JavaScript投向了Server端，顿时就变得火爆起来。时隔近1年，Node.js就获得了Joyent的资助，Ryan Dahl也因此加入了Joyent并继续维护Node.js，负责其发展 ，2011年则是在微软的支持下发布了Windows版本。可随后的2012年，Ryan Dahl选择离开，加入了Google的的Brain团队，开始了<strong>Deep Learning</strong>的研究。这里有一篇<a href="https://mappingthejourney.com" target="_blank" rel="noopener">MAPPING THE JOURNEY</a>对<a href="https://mappingthejourney.com//single-post/2017/08/31/episode-8-interview-with-ryan-dahl-creator-of-nodejs/" target="_blank" rel="noopener">Ryan Dahl的采访</a>，感兴趣的话可以了解一下。</p><p>Node.js 解析的JavaScript代码，并不受浏览器安全级的限制，提供出系统级别的API，例如进程管理，I/O，网络通信等，另外<a href="https://www.npmjs.com/" target="_blank" rel="noopener">Node.js 的社区</a>上有着众多的可用类库，对于一个不喜欢重复造轮子，<del>主修 Ctrl + C/V大法 的程序猿</del>，简直就是天堂(这就是我为什么喜欢 Python )。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;随着HTML规范的完善以及Flash在大趋势上的渐行渐远，JavaScript简直就是扶摇直上九万里，登上了开发大舞台并成为领跑者之一。在这个背景下推出的 Node.js 无疑成为了划时代的产物，让JavaScript能够在Server端上大放异彩。这也就意味着，Node.js成功打破了JavaScript在前后端的职责约束，让其能够与PHP、Python、Ruby并驾齐驱。&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>爬虫 - 豆瓣 Top 250</title>
     <link href="http://vicoyu.com/2018/09/13/%E7%88%AC%E8%99%AB%20-%20%E8%B1%86%E7%93%A3%20Top%20250/"/>
     <id>http://vicoyu.com/2018/09/13/爬虫 - 豆瓣 Top 250/</id>
