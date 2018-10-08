@@ -18,8 +18,8 @@
   
   <entry>
     <title>人脸识别公开数据集 - 整合表</title>
-    <link href="http://vicoyu.com/2018/10/08/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E5%85%AC%E5%BC%80%E6%95%B0%E6%8D%AE%E9%9B%86%20-%20%E6%95%B4%E5%90%88%E8%A1%A8/"/>
-    <id>http://vicoyu.com/2018/10/08/人脸识别公开数据集 - 整合表/</id>
+    <link href="http://vicoyu.com/2018/10/08/face_datasets_table/"/>
+    <id>http://vicoyu.com/2018/10/08/face_datasets_table/</id>
     <published>2018-10-07T16:00:00.000Z</published>
     <updated>2018-10-08T03:23:02.469Z</updated>
     
@@ -40,8 +40,8 @@
   
   <entry>
     <title>爬虫 - 豆瓣 Top 250</title>
-    <link href="http://vicoyu.com/2018/09/13/%E7%88%AC%E8%99%AB%20-%20%E8%B1%86%E7%93%A3%20Top%20250/"/>
-    <id>http://vicoyu.com/2018/09/13/爬虫 - 豆瓣 Top 250/</id>
+    <link href="http://vicoyu.com/2018/09/13/douban_crawlerTop250/"/>
+    <id>http://vicoyu.com/2018/09/13/douban_crawlerTop250/</id>
     <published>2018-09-12T16:00:00.000Z</published>
     <updated>2018-09-14T02:41:17.896Z</updated>
     
@@ -66,8 +66,8 @@
   
   <entry>
     <title>Neo4j Cypher 语法参考</title>
-    <link href="http://vicoyu.com/2018/09/12/Neo4j%20Cypher%20%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83/"/>
-    <id>http://vicoyu.com/2018/09/12/Neo4j Cypher 语法参考/</id>
+    <link href="http://vicoyu.com/2018/09/12/cypher/"/>
+    <id>http://vicoyu.com/2018/09/12/cypher/</id>
     <published>2018-09-11T16:00:00.000Z</published>
     <updated>2018-09-12T06:33:32.304Z</updated>
     
@@ -88,8 +88,8 @@
   
   <entry>
     <title>Neo4j - Cypher Query Language - 入门指引</title>
-    <link href="http://vicoyu.com/2018/09/06/Neo4j%20-%20Cypher%20Query%20Language%20-%20%E6%8C%87%E5%BC%95/"/>
-    <id>http://vicoyu.com/2018/09/06/Neo4j - Cypher Query Language - 指引/</id>
+    <link href="http://vicoyu.com/2018/09/06/Cypher_Query_Language_GUIDE/"/>
+    <id>http://vicoyu.com/2018/09/06/Cypher_Query_Language_GUIDE/</id>
     <published>2018-09-05T16:00:00.000Z</published>
     <updated>2018-09-17T09:52:48.143Z</updated>
     
@@ -110,8 +110,8 @@
   
   <entry>
     <title>K-近邻算法实践：Glass Classiciation - Kaggle Datasets</title>
-    <link href="http://vicoyu.com/2018/09/04/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E5%AE%9E%E8%B7%B5%EF%BC%9AGlass%20Classiciation%20-%20Kaggle%20Datasets/"/>
-    <id>http://vicoyu.com/2018/09/04/K-近邻算法实践：Glass Classiciation - Kaggle Datasets/</id>
+    <link href="http://vicoyu.com/2018/09/04/knn_action/"/>
+    <id>http://vicoyu.com/2018/09/04/knn_action/</id>
     <published>2018-09-03T16:00:00.000Z</published>
     <updated>2018-09-13T01:16:57.501Z</updated>
     
@@ -135,8 +135,8 @@
   
   <entry>
     <title>知识图谱 Knowledge Graph</title>
-    <link href="http://vicoyu.com/2018/09/04/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%20Knowledge%20Graph/"/>
-    <id>http://vicoyu.com/2018/09/04/知识图谱 Knowledge Graph/</id>
+    <link href="http://vicoyu.com/2018/09/04/knowledge_graph/"/>
+    <id>http://vicoyu.com/2018/09/04/knowledge_graph/</id>
     <published>2018-09-03T16:00:00.000Z</published>
     <updated>2018-09-04T11:32:06.556Z</updated>
     
