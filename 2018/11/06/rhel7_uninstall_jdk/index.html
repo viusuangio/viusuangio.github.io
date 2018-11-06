@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="CQL," />
+  <meta name="keywords" content="Linux," />
 
 
 
@@ -91,21 +91,18 @@
 
 
 
-<meta name="description" content="Cypher Query Language (CQL) 是 Neo4j 所使用的开放图形查询语言。Cypher 的语法提供了一种方式（类SQL）来匹配图中的节点和关系，也就是模式。如果具备 SQL 的基础，那么学习起 Cypher 就能变得更加容易。这是这篇指引推崇的做法 —— 先掌握SQL基础，再学习 Cypher。除此之外，还需要具备图形数据库和属性图模型的基本概念，以便更好的理解 Cyphe">
-<meta name="keywords" content="CQL">
+<meta name="description" content="近期在尝试于RHEL7上配置服务器环境，其中第一个就是安装JDK。但凡使用过Linux的朋友都会知道在多数的Linux发行版中，不论是安装的内置JDK或软件源安装的JDK都是Open JDK，其中最主要的是Open JDK不包含Deployment功能。那么在配置环节卸载掉Open JDK和安装Sun JDK是不可避免的。 卸载 Open JDK 在终端内确认一下当前系统的Java版本  1234">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Neo4j - Cypher Query Language - 入门指引">
-<meta property="og:url" content="http://vicoyu.com/2018/09/06/Cypher_Query_Language_GUIDE/index.html">
+<meta property="og:title" content="Red Hat Enterprise Linux 7 卸载 Open JDK 并安装Sun JDK">
+<meta property="og:url" content="http://vicoyu.com/2018/11/06/rhel7_uninstall_jdk/index.html">
 <meta property="og:site_name" content="VICO&#39;S COURSE">
-<meta property="og:description" content="Cypher Query Language (CQL) 是 Neo4j 所使用的开放图形查询语言。Cypher 的语法提供了一种方式（类SQL）来匹配图中的节点和关系，也就是模式。如果具备 SQL 的基础，那么学习起 Cypher 就能变得更加容易。这是这篇指引推崇的做法 —— 先掌握SQL基础，再学习 Cypher。除此之外，还需要具备图形数据库和属性图模型的基本概念，以便更好的理解 Cyphe">
+<meta property="og:description" content="近期在尝试于RHEL7上配置服务器环境，其中第一个就是安装JDK。但凡使用过Linux的朋友都会知道在多数的Linux发行版中，不论是安装的内置JDK或软件源安装的JDK都是Open JDK，其中最主要的是Open JDK不包含Deployment功能。那么在配置环节卸载掉Open JDK和安装Sun JDK是不可避免的。 卸载 Open JDK 在终端内确认一下当前系统的Java版本  1234">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s1.ax1x.com/2018/09/06/iCEnot.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/09/06/iCEmdI.png">
-<meta property="og:updated_time" content="2018-09-17T09:52:48.143Z">
+<meta property="og:updated_time" content="2018-11-06T04:14:39.537Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Neo4j - Cypher Query Language - 入门指引">
-<meta name="twitter:description" content="Cypher Query Language (CQL) 是 Neo4j 所使用的开放图形查询语言。Cypher 的语法提供了一种方式（类SQL）来匹配图中的节点和关系，也就是模式。如果具备 SQL 的基础，那么学习起 Cypher 就能变得更加容易。这是这篇指引推崇的做法 —— 先掌握SQL基础，再学习 Cypher。除此之外，还需要具备图形数据库和属性图模型的基本概念，以便更好的理解 Cyphe">
-<meta name="twitter:image" content="https://s1.ax1x.com/2018/09/06/iCEnot.png">
+<meta name="twitter:title" content="Red Hat Enterprise Linux 7 卸载 Open JDK 并安装Sun JDK">
+<meta name="twitter:description" content="近期在尝试于RHEL7上配置服务器环境，其中第一个就是安装JDK。但凡使用过Linux的朋友都会知道在多数的Linux发行版中，不论是安装的内置JDK或软件源安装的JDK都是Open JDK，其中最主要的是Open JDK不包含Deployment功能。那么在配置环节卸载掉Open JDK和安装Sun JDK是不可避免的。 卸载 Open JDK 在终端内确认一下当前系统的Java版本  1234">
 
 
 
@@ -135,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://vicoyu.com/2018/09/06/Cypher_Query_Language_GUIDE/"/>
+  <link rel="canonical" href="http://vicoyu.com/2018/11/06/rhel7_uninstall_jdk/"/>
 
 
 
 
 
-  <title>Neo4j - Cypher Query Language - 入门指引 | VICO'S COURSE</title>
+  <title>Red Hat Enterprise Linux 7 卸载 Open JDK 并安装Sun JDK | VICO'S COURSE</title>
   
 
 
@@ -288,7 +285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://vicoyu.com/2018/09/06/Cypher_Query_Language_GUIDE/">
+    <link itemprop="mainEntityOfPage" href="http://vicoyu.com/2018/11/06/rhel7_uninstall_jdk/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林羽双珏">
@@ -305,7 +302,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Neo4j - Cypher Query Language - 入门指引</h1>
+          <h1 class="post-title" itemprop="name headline">Red Hat Enterprise Linux 7 卸载 Open JDK 并安装Sun JDK</h1>
         
 
         <div class="post-meta">
@@ -317,8 +314,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-06T00:00:00+08:00">
-                2018-09-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-06T00:00:00+08:00">
+                2018-11-06
               </time>
             
 
@@ -340,8 +337,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Cypher/" itemprop="url" rel="index">
-                    <span itemprop="name">Cypher</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -371,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.6k
+                  775
                 </span>
               
 
@@ -387,7 +384,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  3
                 </span>
               
             </div>
@@ -408,77 +405,38 @@
       
 
       
-        <p><strong>Cypher Query Language (CQL)</strong> 是 <strong>Neo4j</strong> 所使用的开放图形查询语言。Cypher 的语法提供了一种方式（类SQL）来匹配图中的节点和关系，也就是<strong>模式</strong>。如果具备 <strong>SQL</strong> 的基础，那么学习起 Cypher 就能变得更加容易。这是这篇指引推崇的做法 —— 先掌握SQL基础，再学习 Cypher。除此之外，还需要具备图形数据库和属性图模型的基本概念，以便更好的理解 Cypher 查询。</p>
-<a id="more"></a>
-<h2 id="节点-Nodes"><a href="#节点-Nodes" class="headerlink" title="节点 Nodes"></a>节点 Nodes</h2><p>Cypher 使用 ASCII-Art 来表示模式。就像一个⚪一样，用双括弧来围绕节点，例如<code>(节点A)</code>。在之后如果我们想要引用这个节点，只需要使用一个变量例如<code>(node_a)</code> ，如果关注的问题与节点无关，还可以使用空括弧<code>()</code>。一般情况下，节点还会使用标签来区分实体，同时在Neo4j中，使用标签是一种执行优化的方案。以节点A为例，为其添加标签，如<code>(节点A:标签1)</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">match (节点A:标签1) return 节点A.某属性</span><br></pre></td></tr></table></figure>
-<p>在进行节点查询时，有时还会用到<code>(emp:Employee)--&gt;(dep:Department)</code>这样的模式，用以查看例如emp.name，dep.no等属性，可以看一个例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">match (emp:Employee)--&gt;(dep:Department)</span><br><span class="line">where emp.name = &#123;value&#125;</span><br><span class="line">return dep.no,dep.name</span><br></pre></td></tr></table></figure>
-<h2 id="关系-Relationships"><a href="#关系-Relationships" class="headerlink" title="关系 Relationships"></a>关系 Relationships</h2><p>节点与节点之间可以用比直接查询更复杂的模式。关系是用<code>--&gt;</code>来连接两个节点，若要描述关系的类型，则在箭头中增加一对方括号，例如<code>-[]-&gt;</code>，在方括号内写明关系类型。</p>
-<ul>
-<li><strong>关系类型</strong> ：<code>-[:friend]-&gt;</code></li>
-<li><strong>声明关系类型的变量，例如 f</strong>：<code>-[f:friend]-&gt;</code></li>
-<li><strong>附加属性</strong>：<code>-[{date:20180906}]-&gt;</code></li>
-<li><strong>可变长度的路径结构信息</strong>：<code>-[:friend*..3]-&gt;</code></li>
+        <p>近期在尝试于RHEL7上配置服务器环境，其中第一个就是安装JDK。但凡使用过Linux的朋友都会知道在多数的Linux发行版中，不论是安装的内置JDK或软件源安装的JDK都是Open JDK，其中最主要的是Open JDK不包含Deployment功能。那么在配置环节卸载掉Open JDK和安装Sun JDK是不可避免的。</p>
+<h2 id="卸载-Open-JDK"><a href="#卸载-Open-JDK" class="headerlink" title="卸载 Open JDK"></a>卸载 Open JDK</h2><ul>
+<li>在终端内确认一下当前系统的Java版本</li>
 </ul>
-<p>其中声明关系的变量是为了方便之后对有关关系的信息进行调用。例如friend中有一个until的信息，声明了变量之后就可以用 <strong>变量名.until</strong> 来调用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">match (emp:Employee)-[info:information]-&gt;(dep:Department)</span><br><span class="line">where info.join_time &gt; &#123;value&#125;</span><br><span class="line">return info.join_time, type(info)</span><br></pre></td></tr></table></figure>
-<h2 id="模式-Patterns"><a href="#模式-Patterns" class="headerlink" title="模式 Patterns"></a>模式 Patterns</h2><p>节点和关系的表达式是更为复杂模式的基础，<strong>模式</strong>是可以连续编写的，也可以用逗号进行分隔，同时还可以引用先前声明的变量或引入新的变量。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[viusuangio@viusuangio-pc ~]$ java -version</span><br><span class="line">openjdk version "1.8.0_144"</span><br><span class="line">OpenJDK Runtime Environment (build 1.8.0_144-b01)</span><br><span class="line">OpenJDK 64-Bit Server VM (build 25.144-b01, mixed mode)</span><br></pre></td></tr></table></figure>
 <ul>
-<li><strong>找到朋友的朋友</strong>：<code>(me)-[:KNOWS]-(friend)-[:KNOWS]-(she)</code></li>
-<li><strong>最短路径</strong> ：<code>path = shortestPath( (me)-[:KNOWS*..5]-(other_peopel) )</code></li>
-<li><strong>协同过滤</strong>：<code>(someone)-[:PURCHASED]-&gt;(product)&lt;-[:PURCHASED]-()-[:PURCHASED]-&gt;(other_product)</code></li>
-<li><strong>树导航（root）</strong>：<code>(root)&lt;-[:PARENT*]-(leaf:Category)-[:ITEM]-&gt;(data:Product)</code></li>
+<li>卸载Open JDK</li>
 </ul>
-<h2 id="Cypher-的实践"><a href="#Cypher-的实践" class="headerlink" title="Cypher 的实践"></a>Cypher 的实践</h2><p>首先通过<code>create</code>来创建一个节点，这里就拿我自己为例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create (me:Person &#123;name:&apos;林羽双珏&apos;&#125;)</span><br><span class="line">return me</span><br></pre></td></tr></table></figure>
-<p><code>create</code>能够使用标签和属性创建一个节点。除此之外，我想给自己添加一个新的关系，现在想想自己喜欢做什么——比如我喜欢玩《Warframe》这款TPS网游。首先找到自己，并添加一个新的关系到新节点上：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">match (me:Person &#123;name:&apos;林羽双珏&apos;&#125;)</span><br><span class="line">create (me)-[play:PLAY]-&gt;(warframe:PC_Game &#123;name:&apos;Warframe&apos;&#125;)</span><br><span class="line">return me,play,warframe</span><br></pre></td></tr></table></figure>
-<p>通过上面这两个例子，我们不难发现<code>create</code>不仅能够创建单个节点，同时也可以创建出更复杂的结构。接下来继续创建几个节点，但是每次创建节点都要编写这么长的代码未免太过麻烦，所以这一次除了create，还会用到<code>foreach</code>，循环遍历创建出节点：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">match (me:Person &#123;name:&apos;林羽双珏&apos;&#125;)</span><br><span class="line">foreach(n in [&apos;魏小彬&apos;,&apos;陈奕霖&apos;,&apos;刘懿辉&apos;,&apos;王祎&apos;,&apos;陈文辉&apos;,&apos;钟滨&apos;,&apos;唐建新&apos;] |</span><br><span class="line">	create (me)-[:FRIEND]-&gt;(:Person &#123;name:n&#125;)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>在循环创建出多个节点之后，把我与朋友们的图给查询出来：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">match (me:Person &#123;name:&apos;林羽双珏&apos;&#125;)-[:FRIEND]-&gt;(myFriend)</span><br><span class="line">return me,myFriend</span><br></pre></td></tr></table></figure>
-<p><img src="https://s1.ax1x.com/2018/09/06/iCEnot.png" alt="iCEnot.png"></p>
-<p>根据查询出来的图可以看出与我关系为<code>FRIEND</code>的人(节点)一共有7个。假设此时，忽然想起了其中某一个人的老师是Warframe这款游戏的设计师，我们把这个二层关系也创建出来。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">match (warframe:PC_GAME &#123;name:&apos;Warframe&apos;&#125;)</span><br><span class="line">match (wangyi:Person &#123;name:&apos;王祎&apos;&#125;)</span><br><span class="line">create (wangyi)-[:STUDENT]-&gt;(teacher:Person:GameDesigner &#123;name:&apos;Sean Bigham&apos;&#125;)-[:DESIGNED]-&gt;(warframe)</span><br><span class="line">return wangyi,teacher,warframe</span><br></pre></td></tr></table></figure>
-<p>我现在并不知道我的哪一个朋友的老师，是Warframe的设计师，我非常迫切的想要认识那位设计者，这时就可以通过这个<strong>社交网络</strong>找到谁可以帮助我。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">match (me &#123;name:&apos;林羽双珏&apos;&#125;)</span><br><span class="line">match (designer)-[:DESIGNED]-&gt;(warframe:PC_GAME &#123;name:&apos;Warframe&apos;&#125;)</span><br><span class="line">match path = shortestPath( (you)-[*..5]-(designer) )</span><br><span class="line">return db,designer,path</span><br></pre></td></tr></table></figure>
-<p><img src="https://s1.ax1x.com/2018/09/06/iCEmdI.png" alt="iCEmdI.png"></p>
-<h2 id="CREATE-和-MATCH"><a href="#CREATE-和-MATCH" class="headerlink" title="CREATE 和 MATCH"></a>CREATE 和 MATCH</h2><p>这一个小节中对<code>CREATE</code>以及<code>MATCH</code>做一个简单的描述和总结，如若在完成了上述章节中的内容还对所使用的语句不是特别理解的话，建议在这一章节中进行巩固。相反，若经过实践已经对Cypher的使用找到了一些感觉，并理解你写下的每一个字符所代表的含义，那么这一章节你大可以跳过。</p>
-<blockquote>
-<p><strong>CREATE</strong></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create (me:Person &#123;name:&apos;林羽双珏&apos;&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa| grep openjdk|xargs rpm -e --nodeps</span><br></pre></td></tr></table></figure>
+<h2 id="安装Sun-JDK"><a href="#安装Sun-JDK" class="headerlink" title="安装Sun JDK"></a>安装Sun JDK</h2><ul>
+<li>到Oracle的官方网站上下载Linux版本的JDK，可以下载<strong>tar.gz</strong>格式的压缩包，也可以下载<strong>rpm</strong>的安装包，视个人习惯决定，没差。这里以压缩包为示例（<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html" target="_blank" rel="noopener">Java SE Development Kit 9.0.4</a>）</li>
+<li>下载好了JDK包之后可以在<strong>/usr</strong>下建立一个<strong>Java</strong>目录用以存放，将tar.gz包解压后将解压出的文件移动到<strong>/usr/java</strong>目录下</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# mkdir /usr/java         //创建目录</span><br><span class="line">[root@localhost ~]# tar -xzvf [tar.gz包]    //解压到当前目录</span><br><span class="line">[root@localhost ~]# cp -rf /home/viusuangio/download/[文件夹名] /usr/java</span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>CREATE</code> 子句用以创建数据（节点，关系都属于数据）</li>
-<li><code>( )</code>双括弧表示节点</li>
-<li><code>me</code> 变量命，<code>:Person</code> 为这个节点施以指定的标签（也可以没有标签）</li>
-<li><code>{ }</code> 花括号用以向节点添加属性，属性值以键值表达</li>
+<li>上述逐步完成后开始配置环境变量，需要修改的文件<strong>/etc/profile</strong></li>
 </ul>
-<blockquote>
-<p><strong>MATCH</strong></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">match (me:Person) where me.name =&apos;林羽双珏&apos; return me</span><br><span class="line">//或</span><br><span class="line">match (me:Person &#123;name:&apos;林羽双珏&apos;&#125;) return me  // 本文所使用的模式</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# vi /etc/profile</span><br><span class="line">//键入i更改为插入模式，如下修改</span><br><span class="line"><span class="meta">#</span> /etc/profile</span><br><span class="line">export JAVA_HOME=/usr/java/[目录名]</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib:$CLASSPATH</span><br><span class="line">//键入Esc，退出插入模式</span><br><span class="line">//键入 :x 保存并退出vim编辑</span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>MATCH</code> 子句用以指定节点和关系的模式</li>
-<li><p><code>(me:Person)</code> me 为变量名，<code>:Person</code> 用以指定匹配带标签“Person”节点</p>
-</li>
-<li><p><code>where</code> 子句用以约束结果</p>
-</li>
-<li><code>me.name = &#39;林羽双珏&#39;</code> 将值与name属性的值进行比较</li>
-<li><code>return</code> 子句用于请求特定的结果 </li>
+<li>环境配置结束后重新加载一次资源</li>
 </ul>
-<blockquote>
-<p><strong>模式匹配</strong></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">match (me:Person)-[:FRIEND]-(friends)</span><br><span class="line">	where me.name = &apos;林羽双珏&apos; </span><br><span class="line">    return me , friends</span><br><span class="line">//或</span><br><span class="line">match (me:Person &#123;name:&apos;林羽双珏&apos;&#125;)-[:FRIEND]-(friends)</span><br><span class="line">	return me , friends</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# source /etc/profile</span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>MATCH</code> 子句用以描述从已知节点找到节点的模式</li>
-<li><p><code>-[:FRIEND]-</code> 匹配“FRIEND”这一关系，如果不带有箭头<code>&gt;</code>或<code>&lt;</code>则表示任何一个方向都可以</p>
-</li>
-<li><p><code>(friends)</code>将匹配到指定 <code>me</code>的<code>FRIEND</code></p>
-</li>
+<li>在终端中查看当前系统的Java版本，检查安装及配置是否成功</li>
 </ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# java -version</span><br><span class="line">java version "9.0.4"</span><br><span class="line">Java(TM) SE Runtime Environment (build 9.0.4+11)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 9.0.4+11, mixed mode)</span><br><span class="line"></span><br><span class="line">//安装成功</span><br></pre></td></tr></table></figure>
+<h2 id="可能会遇到的问题"><a href="#可能会遇到的问题" class="headerlink" title="可能会遇到的问题"></a>可能会遇到的问题</h2><p>个人有个习惯，配置完变量的时候都会习惯性的打开终端，输入<code>echo</code>查看，例如输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# echo $JAVA_HOME</span><br></pre></td></tr></table></figure>
+<p>按理来说，如果配置成功了会将该路径输出到终端的，但是意外发现重新打开一个终端输入测试时，输出为空。于是再次尝试输入<code>java -version</code> ，竟然提示说Command not found ，之前执行<code>source</code>命令重新加载过了，并且也能够使用Java命令，可是切换了一个终端就不行了？由此推断出是全局变量没有起作用。</p>
+<p>回想一下之前配置的是 <strong>/etc/profile</strong>，试想<strong>etc/bashrc</strong>文件中添加Java的环境变量也是可以修改全局变量的，于是将上边儿的配置全部复制到了该文件下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> /etc/bashrc</span><br><span class="line">export JAVA_HOME=/usr/java/[目录名]</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib:$CLASSPATH</span><br><span class="line">//保存并退出 ， 执行一次source /etc/bashrc</span><br></pre></td></tr></table></figure>
+<p>重新输入 <code>java -version</code> , 成功输出版本信息，输入<code>echo $JAVA_HOME</code>，成功输出路径，切换到新的终端，重复测试，没有任何问题，至此解决。</p>
 
       
     </div>
@@ -525,7 +483,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CQL/" rel="tag"><i class="fa fa-tag"></i> CQL</a>
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
           
         </div>
       
@@ -542,8 +500,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/04/knn_action/" rel="next" title="K-近邻算法实践：Glass Classiciation - Kaggle Datasets">
-                <i class="fa fa-chevron-left"></i> K-近邻算法实践：Glass Classiciation - Kaggle Datasets
+              <a href="/2018/10/16/implementation_rpa/" rel="next" title="个人理解：浅谈部署RPA的5个建议">
+                <i class="fa fa-chevron-left"></i> 个人理解：浅谈部署RPA的5个建议
               </a>
             
           </div>
@@ -551,10 +509,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/12/cypher/" rel="prev" title="Neo4j Cypher 语法参考">
-                Neo4j Cypher 语法参考 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -749,7 +703,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#节点-Nodes"><span class="nav-number">1.</span> <span class="nav-text">节点 Nodes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关系-Relationships"><span class="nav-number">2.</span> <span class="nav-text">关系 Relationships</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模式-Patterns"><span class="nav-number">3.</span> <span class="nav-text">模式 Patterns</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cypher-的实践"><span class="nav-number">4.</span> <span class="nav-text">Cypher 的实践</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CREATE-和-MATCH"><span class="nav-number">5.</span> <span class="nav-text">CREATE 和 MATCH</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#卸载-Open-JDK"><span class="nav-number">1.</span> <span class="nav-text">卸载 Open JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Sun-JDK"><span class="nav-number">2.</span> <span class="nav-text">安装Sun JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可能会遇到的问题"><span class="nav-number">3.</span> <span class="nav-text">可能会遇到的问题</span></a></li></ol></div>
             
 
           </div>
