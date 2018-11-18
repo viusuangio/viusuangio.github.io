@@ -404,41 +404,14 @@
 
       
         
-          
-            <p>近期在尝试于RHEL7上配置服务器环境，其中第一个就是安装JDK。但凡使用过Linux的朋友都会知道在多数的Linux发行版中，不论是安装的内置JDK或软件源安装的JDK都是Open JDK，其中最主要的是Open JDK不包含Deployment功能。那么在配置环节卸载掉Open JDK和安装Sun JDK是不可避免的。</p>
-<h2 id="卸载-Open-JDK"><a href="#卸载-Open-JDK" class="headerlink" title="卸载 Open JDK"></a>卸载 Open JDK</h2><ul>
-<li>在终端内确认一下当前系统的Java版本</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[viusuangio@viusuangio-pc ~]$ java -version</span><br><span class="line">openjdk version "1.8.0_144"</span><br><span class="line">OpenJDK Runtime Environment (build 1.8.0_144-b01)</span><br><span class="line">OpenJDK 64-Bit Server VM (build 25.144-b01, mixed mode)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>卸载Open JDK</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa| grep openjdk|xargs rpm -e --nodeps</span><br></pre></td></tr></table></figure>
-<h2 id="安装Sun-JDK"><a href="#安装Sun-JDK" class="headerlink" title="安装Sun JDK"></a>安装Sun JDK</h2><ul>
-<li>到Oracle的官方网站上下载Linux版本的JDK，可以下载<strong>tar.gz</strong>格式的压缩包，也可以下载<strong>rpm</strong>的安装包，视个人习惯决定，没差。这里以压缩包为示例（<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html" target="_blank" rel="noopener">Java SE Development Kit 9.0.4</a>）</li>
-<li>下载好了JDK包之后可以在<strong>/usr</strong>下建立一个<strong>Java</strong>目录用以存放，将tar.gz包解压后将解压出的文件移动到<strong>/usr/java</strong>目录下</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# mkdir /usr/java         //创建目录</span><br><span class="line">[root@localhost ~]# tar -xzvf [tar.gz包]    //解压到当前目录</span><br><span class="line">[root@localhost ~]# cp -rf /home/viusuangio/download/[文件夹名] /usr/java</span><br></pre></td></tr></table></figure>
-<ul>
-<li>上述逐步完成后开始配置环境变量，需要修改的文件<strong>/etc/profile</strong></li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# vi /etc/profile</span><br><span class="line">//键入i更改为插入模式，如下修改</span><br><span class="line"><span class="meta">#</span> /etc/profile</span><br><span class="line">export JAVA_HOME=/usr/java/[目录名]</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib:$CLASSPATH</span><br><span class="line">//键入Esc，退出插入模式</span><br><span class="line">//键入 :x 保存并退出vim编辑</span><br></pre></td></tr></table></figure>
-<ul>
-<li>环境配置结束后重新加载一次资源</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# source /etc/profile</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在终端中查看当前系统的Java版本，检查安装及配置是否成功</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# java -version</span><br><span class="line">java version "9.0.4"</span><br><span class="line">Java(TM) SE Runtime Environment (build 9.0.4+11)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 9.0.4+11, mixed mode)</span><br><span class="line"></span><br><span class="line">//安装成功</span><br></pre></td></tr></table></figure>
-<h2 id="可能会遇到的问题"><a href="#可能会遇到的问题" class="headerlink" title="可能会遇到的问题"></a>可能会遇到的问题</h2><p>个人有个习惯，配置完变量的时候都会习惯性的打开终端，输入<code>echo</code>查看，例如输入：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# echo $JAVA_HOME</span><br></pre></td></tr></table></figure>
-<p>按理来说，如果配置成功了会将该路径输出到终端的，但是意外发现重新打开一个终端输入测试时，输出为空。于是再次尝试输入<code>java -version</code> ，竟然提示说Command not found ，之前执行<code>source</code>命令重新加载过了，并且也能够使用Java命令，可是切换了一个终端就不行了？由此推断出是全局变量没有起作用。</p>
-<p>回想一下之前配置的是 <strong>/etc/profile</strong>，试想<strong>etc/bashrc</strong>文件中添加Java的环境变量也是可以修改全局变量的，于是将上边儿的配置全部复制到了该文件下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> /etc/bashrc</span><br><span class="line">export JAVA_HOME=/usr/java/[目录名]</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib:$CLASSPATH</span><br><span class="line">//保存并退出 ， 执行一次source /etc/bashrc</span><br></pre></td></tr></table></figure>
-<p>重新输入 <code>java -version</code> , 成功输出版本信息，输入<code>echo $JAVA_HOME</code>，成功输出路径，切换到新的终端，重复测试，没有任何问题，至此解决。</p>
-
-          
+          <p>近期在尝试于RHEL7上配置服务器环境，其中第一个就是安装JDK。但凡使用过Linux的朋友都会知道在多数的Linux发行版中，不论是安装的内置JDK或软件源安装的JDK都是Open JDK，其中最主要的是Open JDK不包含Deployment功能。那么在配置环节卸载掉Open JDK和安装Sun JDK是不可避免的。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/06/rhel7_uninstall_jdk/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1382,6 +1355,185 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://vicoyu.com/2018/09/04/knowledge_graph/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="林羽双珏">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://s1.ax1x.com/2018/09/04/iS7Zz4.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="VICO'S COURSE">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/04/knowledge_graph/" itemprop="url">知识图谱 Knowledge Graph</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T00:00:00+08:00">
+                2018-09-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Knowledge-Graph/" itemprop="url" rel="index">
+                    <span itemprop="name">Knowledge Graph</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  6.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  23
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Part-I：知识图谱概念"><a href="#Part-I：知识图谱概念" class="headerlink" title="Part I：知识图谱概念"></a>Part I：知识图谱概念</h2><p>知识图谱这个概念最早是由 Google 于 2012年5月 率先提出的，目的是<strong>将用户搜索的结果进行知识系统化，让每一个关键字都拥有一个完整的知识体系，从而真正意义上实现基于内容检索，提高搜索质量</strong>。Google 提出的知识图谱在某种程度上，可能将被指向下一代智能搜索引擎的核心。借用幸格博士的一句话：The world is not made of strings , but is made of things . 即构成这个世界的并非是字符串，而是实体。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/04/knowledge_graph/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+		<div>
+		  
+		</div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://vicoyu.com/2018/09/04/knn_action/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1510,185 +1662,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/09/04/knn_action/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-		<div>
-		  
-		</div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://vicoyu.com/2018/09/04/knowledge_graph/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="林羽双珏">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://s1.ax1x.com/2018/09/04/iS7Zz4.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="VICO'S COURSE">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/04/knowledge_graph/" itemprop="url">知识图谱 Knowledge Graph</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T00:00:00+08:00">
-                2018-09-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Knowledge-Graph/" itemprop="url" rel="index">
-                    <span itemprop="name">Knowledge Graph</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  6.7k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  23
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Part-I：知识图谱概念"><a href="#Part-I：知识图谱概念" class="headerlink" title="Part I：知识图谱概念"></a>Part I：知识图谱概念</h2><p>知识图谱这个概念最早是由 Google 于 2012年5月 率先提出的，目的是<strong>将用户搜索的结果进行知识系统化，让每一个关键字都拥有一个完整的知识体系，从而真正意义上实现基于内容检索，提高搜索质量</strong>。Google 提出的知识图谱在某种程度上，可能将被指向下一代智能搜索引擎的核心。借用幸格博士的一句话：The world is not made of strings , but is made of things . 即构成这个世界的并非是字符串，而是实体。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/09/04/knowledge_graph/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
