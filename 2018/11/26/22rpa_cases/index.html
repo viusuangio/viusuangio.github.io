@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "d2951a97"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="RPA," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="VICO'S COURSE" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="之前已经探讨过关于什么是RPA（Robotic Process Automation，机器人流程自动化），随即有人留言提出关于RPA的一些用例问题，表明对RPA所能够做的事情不甚了解。那么这一篇文章列举出22个RPA的实际用例，希望能够对有意向引入RPA的朋友有所帮助。">
+<meta name="keywords" content="RPA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="22个RPA用例（含说明）">
+<meta property="og:url" content="http://vicoyu.com/2018/11/26/22rpa_cases/index.html">
+<meta property="og:site_name" content="VICO&#39;S COURSE">
+<meta property="og:description" content="之前已经探讨过关于什么是RPA（Robotic Process Automation，机器人流程自动化），随即有人留言提出关于RPA的一些用例问题，表明对RPA所能够做的事情不甚了解。那么这一篇文章列举出22个RPA的实际用例，希望能够对有意向引入RPA的朋友有所帮助。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-27T08:19:16.252Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="22个RPA用例（含说明）">
+<meta name="twitter:description" content="之前已经探讨过关于什么是RPA（Robotic Process Automation，机器人流程自动化），随即有人留言提出关于RPA的一些用例问题，表明对RPA所能够做的事情不甚了解。那么这一篇文章列举出22个RPA的实际用例，希望能够对有意向引入RPA的朋友有所帮助。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://vicoyu.com/2018/11/26/22rpa_cases/"/>
+
+
+
+
+
+  <title>22个RPA用例（含说明） | VICO'S COURSE</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9789b8abf48765941064bc3d48dc5aa4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">VICO'S COURSE</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://vicoyu.com/2018/11/26/22rpa_cases/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="林羽双珏">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://s1.ax1x.com/2018/09/04/iS7Zz4.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="VICO'S COURSE">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">22个RPA用例（含说明）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-26T00:00:00+08:00">
+                2018-11-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Robotic-Process-Automation/" itemprop="url" rel="index">
+                    <span itemprop="name">Robotic Process Automation</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>之前已经探讨过关于什么是RPA（Robotic Process Automation，机器人流程自动化），随即有人留言提出关于RPA的一些用例问题，表明对RPA所能够做的事情不甚了解。那么这一篇文章列举出22个RPA的实际用例，希望能够对有意向引入RPA的朋友有所帮助。</p>
+<a id="more"></a>
+<h2 id="常见的业务流程"><a href="#常见的业务流程" class="headerlink" title="常见的业务流程"></a>常见的业务流程</h2><h3 id="1-报价到销售（Quote-to-cash-Q2C）"><a href="#1-报价到销售（Quote-to-cash-Q2C）" class="headerlink" title="1.报价到销售（Quote-to-cash, Q2C）"></a>1.报价到销售（Quote-to-cash, Q2C）</h3><p>销售，是任何一家企业的生存之道。不论是产品、服务亦或其他方式的销售，都会面临运营方面的问题，这其中的某些问题可能会导致客户的投诉，甚至由于文书的标价错误从而不得不降价售出。是否常见姑且不谈，可问题确实存在。</p>
+<p>那么通过引入RPA，在运营流程上进行自动化处理，则可消除这些人为的错误，并能够为客户提供更加快速的服务，满足客户“快速响应”的体验要求。由于RPA在处理销售的速度远远高于人工手动流程，换句话说，客户在收到报价后比以往提前支付并改善资金流。</p>
+<h3 id="2-采购到支付-（Procure-to-pay）"><a href="#2-采购到支付-（Procure-to-pay）" class="headerlink" title="2.采购到支付 （Procure-to-pay）"></a>2.采购到支付 （Procure-to-pay）</h3><p>由于采购到支付这一项业务流程中涉及到从多个系统中提取数据，例如企业资源规划系统（ERP）、客户关系管理系统（CRM），同时也会有银行、供应商等，然而这些系统都没有提供集成方式，因此避免不了各种人为操作。操作繁琐，但却具备规则性，如此便可交由RPA来弥补这个系统之间缺乏自动化的空白。</p>
+<p>通过全自动的采购到付款，您可以确保遵循最佳的采购方案。</p>
+<h3 id="3-数据迁移和输入"><a href="#3-数据迁移和输入" class="headerlink" title="3. 数据迁移和输入"></a>3. 数据迁移和输入</h3><p>传统系统仍然在公司执行着至关重要的关键任务。例如账单系统需要与其他系统交互，而这些系统可能无法从API中提取相关数据。在这种情况下，员工不得已只能导出CSV或其他格式的文件随即进行手动的数据迁移。人为操作势必会出现部分数据的录入错误。而RPA可以防止这种手工劳动和它带来的潜在错误。</p>
+<p>此外，这种保持数据同步的系统能够改进分析和决策。在如今这种无数应用程序供企业选择的互联网科技时代，RPA可以帮助集成应用程序，并允许进行更全面的分析。</p>
+<h3 id="4-从PDF或其他格式中提取数据"><a href="#4-从PDF或其他格式中提取数据" class="headerlink" title="4.从PDF或其他格式中提取数据"></a>4.从PDF或其他格式中提取数据</h3><p>屏幕抓取、OCR(光学字符识别)和基本模式识别技术支持从几乎任何各式的文件中提取数据，减少了手工录入数据的需要。</p>
+<h3 id="5-定期编写和发送报告"><a href="#5-定期编写和发送报告" class="headerlink" title="5. 定期编写和发送报告"></a>5. 定期编写和发送报告</h3><p>报告在任何一项业务中都至关重要，都需要报告来通知相关负责人，并确保团队了解他们的进展情况。准备这样的报告，并按照固定的周期进行发送，虽然这项流程并非劳动密集型，但势必会分散员工的注意力。RPA提供的解决方案能够方便地自动生成报告，并分析报告内容，根据内容将报告发送给相关人员。</p>
+<p>例如，在电信通讯领域的某家运营商的报告中指出，存在通信问题的区域，基于其严重性而具备不同的报告接收者。CTO需要拷贝到有关键性问题的报告中，网络主管应该拷贝到又重大问题的报告中。RPA可以分析报告，根据提供的标准规则来制定报告接收方。</p>
+<h3 id="6-生成大量邮件"><a href="#6-生成大量邮件" class="headerlink" title="6.生成大量邮件"></a>6.生成大量邮件</h3><p>大量的电子邮件都是依赖于来自多个系统的数据，若是通过手工生成这些数据无疑是非常痛苦的，耗费大量的精力以及时间。特别是需要重复性进行这样的业务流程，那么不得不考虑使用RPA来进行建设自动化流程。</p>
+<h3 id="7-CRM自动更新"><a href="#7-CRM自动更新" class="headerlink" title="7.CRM自动更新"></a>7.CRM自动更新</h3><p>更新客户关系管理系统的交互非常的耗时且效率低下（不排除有非常优秀的CRM系统，但仍然需要人工交互），虽然如此却有其必要性，不可抛却。为了解决这样的矛盾，可以通过RPA来自动将客户联系数据更新到CRM中的信息记录中。</p>
+<h3 id="8-客户服务"><a href="#8-客户服务" class="headerlink" title="8.客户服务"></a>8.客户服务</h3><p>客户联系中心依赖于各式各样的供应商提供的各式各样的系统，在某些接触台主要是处理大量简单重复性的任务。客服人员需要了解到客户的意图，并且在不同的系统和应用程序之间进行切换并执行必要的操作，随即通知客户解决结果。</p>
+<p>那么这里有个非常致命的缺点，客户需要在客服进行操作的期间进行等待，有时还需要向客户询问重复的信息，这无疑降低了客户的满意度，延长了通话时间。</p>
+<p>这非常适合RPA的引入。这些简单却重复的任务甚至只需要几个小时就能够完成自动化，并且迅速投入使用从而实现价值。</p>
+<h3 id="9-定期诊断"><a href="#9-定期诊断" class="headerlink" title="9. 定期诊断"></a>9. 定期诊断</h3><p>“从不同的人那儿听到同样的问题反馈是极其痛苦的一件事情”，相信技术支持团队对这句话深有感触，这正是系统发生一些故障时的情形。当技术支持团队正在努力解决问题的时候，还需要处理同事或领导亦或其他人打来的询问电话。</p>
+<p>通过使用RPA，让机器人定期进行诊断工作，这能够让技术支持团队领先于任何一个部门一步发现问题，并让这个问题被常规用户发现之前就对故障做出响应。提高了工作效率的同时，对技术支持团队的满意度更是拔高，最重要的——不用再接诸如“系统究竟什么时候可以恢复”之类的电话了，何乐而不为？</p>
+<h3 id="10-常规测试"><a href="#10-常规测试" class="headerlink" title="10.常规测试"></a>10.常规测试</h3><p>企业需要定期对使用中的某些系统进行常规测试，以确保能够在灾难性错误发生前及时发现隐患，保证系统的安全以及稳定。但是几乎所有的情况都是：或简单或复杂的测试都极其耗时，而且非常的枯燥。</p>
+<p>那么通过RPA就可以很轻松的解决这个问题，RPA机器人会准确执行每一步常规测试流程。</p>
+<h3 id="11-故障修复"><a href="#11-故障修复" class="headerlink" title="11. 故障修复"></a>11. 故障修复</h3><p>某些系统在使用过程中会出些小的意外，例如资源占用过高导致的程序崩溃，需要清理资源并重启应用程序。这其中也包含着具备规则的流程，为了摆脱繁琐的人工操作，可以使用RPA机器人来进行代劳，它无疑最为准确高效。</p>
+<h3 id="12-财务规划"><a href="#12-财务规划" class="headerlink" title="12.财务规划"></a>12.财务规划</h3><p>财务规划流程涉及处理以及合并来自众多部门的财务报表，这些报表在财务规划和分析（FD&amp;A）系统中是一项极为枯燥的工作，如果没有FD&amp;A系统而是通过人工来进行整理，那势必更加的麻烦。可借助RPA来进行流程的自动化。</p>
+<h3 id="13-企业-银行对账"><a href="#13-企业-银行对账" class="headerlink" title="13.企业-银行对账"></a>13.企业-银行对账</h3><p>从银行提供的账单中提取数据进行记录核对的这项流程十分繁琐，且耗费时间极长，同时会让员工倍感煎熬。通过RPA来实现自动对账，这是最好的解决方案。</p>
+<h3 id="14-每日损益-P-amp-L-表"><a href="#14-每日损益-P-amp-L-表" class="headerlink" title="14.每日损益(P&amp;L)表"></a>14.每日损益(P&amp;L)表</h3><p>大型金融服务公司，尤其是从事交易业务的公司，每天进行损益跟踪报表以及风险敞口。其中一部分的公司已经进行过自动化建设，但仍然有一些公司依赖Excel或其他系统和手工来完成这些报告。</p>
+<p>实现P&amp;L报表流程自动化，能够大幅缩短其耗费的时间，高效的同时也确保了报告的准确性，这一点人工无法与之相比。</p>
+<h3 id="15-财务报销"><a href="#15-财务报销" class="headerlink" title="15.财务报销"></a>15.财务报销</h3><p>大多数的公司一直使用着过时的OA系统或其他系统，要求员工提供所有的报销费用细节，例如费用金额、日期、出差起讫地点等，但是大部分的细节已经在员工提供的收据中提供了。</p>
+<p>具备OCR功能的RPA解决方案可以自动从收据中提取出重要字段，让员工的报销变得更加轻松和简单，只需要将收据拍出清晰的照片就足以从其中提取相关数据，并自动填写到费用报销单中的指定字段。</p>
+<h3 id="16-库存记录更新"><a href="#16-库存记录更新" class="headerlink" title="16.库存记录更新"></a>16.库存记录更新</h3><p>库存管理通常涉及多个系统之间的协调 ，RPA机器人可以轻松地实现这种系统间协调的通信自动化，实现端到端。而降低人力成本和大量耗时。</p>
+<h3 id="17-退款"><a href="#17-退款" class="headerlink" title="17.退款"></a>17.退款</h3><p>在任何公司或企业，退款的流程往往是极为繁琐的，会导致严重的延迟和客户不满。这是一个会产生连锁反应的问题，要求退款的客户本身就已经是对服务或产品本身不满的客户 ，若在退款时让他们更加的不满，只会导致他们散播这种负面情绪，损害公司、品牌形象。</p>
+<p>借助RPA实现退款/索赔的流程自动化，能够大幅缩减这其中的时间消耗，提高流程响应速度。</p>
+<h3 id="18-更新供应商记录"><a href="#18-更新供应商记录" class="headerlink" title="18.更新供应商记录"></a>18.更新供应商记录</h3><p>供应商提供的所有文件都是需要保存的，并确保其为最新。这样能够保证不同公司或单位可以协调他们的开支。使用RPA自动去更新维护此类文件可以让采购人员从简单重复的任务中解脱出来，专注管理供应商关系。</p>
+<h3 id="19-贷款处理"><a href="#19-贷款处理" class="headerlink" title="19.贷款处理"></a>19.贷款处理</h3><p>与大多数文档处理任务一样，这个流程也适用于RPA自动化。</p>
+<h3 id="20-交易执行"><a href="#20-交易执行" class="headerlink" title="20.交易执行"></a>20.交易执行</h3><p>在现有系统无法存储复杂的限制订单的情况下，RPA机器人可以提供帮助。然而，这更像是一个权宜之计，因为从长远来看，考虑到它可以改善交易，减轻交易员的负担，转向一个成熟而有能力的交易系统可能是一项不错的投资。</p>
+<p>说实话，即使在21世纪头十年，人类仍然在交易中键入关键字，并在银行从事日内交易。考虑到数据的丰富性和机器的速度，人类在2018年仍在从事这项工作是非常令人惊讶的。</p>
+<h3 id="21-索赔处理"><a href="#21-索赔处理" class="headerlink" title="21.索赔处理"></a>21.索赔处理</h3><p>理赔处理是每一家保险公司的核心。由于客户是在发生不幸的时候提出索赔的，所以客户体验和处理速度在索赔处理中是至关重要的。在索赔处理过程中产生问题的因素有很多，例如索赔处理通常涉及外包人员完成的手工分析、不同格式的输入数据、监管变化。这些会导致索赔处理过程中的人为偏差，从而导致损失、客户不满和在关键过程中缺乏可见性。</p>
+<p>RPA机器人可以处理所有这些问题。本质上，机器人以表单的形式接收非结构化数据，提取结构化数据，并基于预定义的规则处理索赔。</p>
+<h3 id="22-申述处理"><a href="#22-申述处理" class="headerlink" title="22.申述处理"></a>22.申述处理</h3><p>在理赔处理后，一些理赔会导致申诉，这是另一个可以从自动化中获益的流程。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您打赏的一小步，就是中华GDP的一大步 ( •̀ ω •́ )y 嘿咻</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.jpg" alt="林羽双珏 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="林羽双珏 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/RPA/" rel="tag"><i class="fa fa-tag"></i> RPA</a>
+          
+        </div>
+      
+		<div>
+		  
+			
+		  
+		</div>
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/22/methodology_rpa/" rel="next" title="方法论：企业应该如何正确把握RPA">
+                <i class="fa fa-chevron-left"></i> 方法论：企业应该如何正确把握RPA
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/28/thinkaboutrpa/" rel="prev" title="关于机器人流程自动化的一些思考">
+                关于机器人流程自动化的一些思考 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://s1.ax1x.com/2018/09/04/iS7Zz4.jpg"
+                alt="林羽双珏" />
+            
+              <p class="site-author-name" itemprop="name">林羽双珏</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/viusuangio" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:linyu@kingsware.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://archive.ics.uci.edu/ml/index.php" title="UCI" target="_blank">UCI</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.kaggle.com/" title="Kaggle" target="_blank">Kaggle</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.coursera.org/" title="Coursera" target="_blank">Coursera</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.tensorfly.cn/" title="TensorFlow(CN)" target="_blank">TensorFlow(CN)</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://algs4.cs.princeton.edu/home/" title="Algorithems,4TH EDITION" target="_blank">Algorithems,4TH EDITION</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.awesomes.cn/" title="WEB前端开发资源库" target="_blank">WEB前端开发资源库</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hao.shejidaren.com/index.html" title="设计导航" target="_blank">设计导航</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见的业务流程"><span class="nav-number">1.</span> <span class="nav-text">常见的业务流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-报价到销售（Quote-to-cash-Q2C）"><span class="nav-number">1.1.</span> <span class="nav-text">1.报价到销售（Quote-to-cash, Q2C）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-采购到支付-（Procure-to-pay）"><span class="nav-number">1.2.</span> <span class="nav-text">2.采购到支付 （Procure-to-pay）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-数据迁移和输入"><span class="nav-number">1.3.</span> <span class="nav-text">3. 数据迁移和输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-从PDF或其他格式中提取数据"><span class="nav-number">1.4.</span> <span class="nav-text">4.从PDF或其他格式中提取数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-定期编写和发送报告"><span class="nav-number">1.5.</span> <span class="nav-text">5. 定期编写和发送报告</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-生成大量邮件"><span class="nav-number">1.6.</span> <span class="nav-text">6.生成大量邮件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-CRM自动更新"><span class="nav-number">1.7.</span> <span class="nav-text">7.CRM自动更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-客户服务"><span class="nav-number">1.8.</span> <span class="nav-text">8.客户服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-定期诊断"><span class="nav-number">1.9.</span> <span class="nav-text">9. 定期诊断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-常规测试"><span class="nav-number">1.10.</span> <span class="nav-text">10.常规测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-故障修复"><span class="nav-number">1.11.</span> <span class="nav-text">11. 故障修复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-财务规划"><span class="nav-number">1.12.</span> <span class="nav-text">12.财务规划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-企业-银行对账"><span class="nav-number">1.13.</span> <span class="nav-text">13.企业-银行对账</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-每日损益-P-amp-L-表"><span class="nav-number">1.14.</span> <span class="nav-text">14.每日损益(P&amp;L)表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-财务报销"><span class="nav-number">1.15.</span> <span class="nav-text">15.财务报销</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-库存记录更新"><span class="nav-number">1.16.</span> <span class="nav-text">16.库存记录更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-退款"><span class="nav-number">1.17.</span> <span class="nav-text">17.退款</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-更新供应商记录"><span class="nav-number">1.18.</span> <span class="nav-text">18.更新供应商记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-贷款处理"><span class="nav-number">1.19.</span> <span class="nav-text">19.贷款处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-交易执行"><span class="nav-number">1.20.</span> <span class="nav-text">20.交易执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-索赔处理"><span class="nav-number">1.21.</span> <span class="nav-text">21.索赔处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-申述处理"><span class="nav-number">1.22.</span> <span class="nav-text">22.申述处理</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">林羽双珏</span>
+
+  
+</div>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数：<span id="busuanzi_value_site_uv"></span> | 本站总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div> -->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <!-- <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div> -->
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">VICO'S COURSE 全站共27.6k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
