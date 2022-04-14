@@ -2,6 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.com/2018/09/04/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E5%AE%9E%E8%B7%B5%EF%BC%9AGlass%20Classification%20-%20Kaggle%20Datasets/</loc>
+    
+    <lastmod>2022-04-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/about/index.html</loc>
+    
+    <lastmod>2022-04-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/link/index.html</loc>
+    
+    <lastmod>2022-04-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/index.html</loc>
+    
+    <lastmod>2022-04-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/index.html</loc>
+    
+    <lastmod>2022-04-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/2018/09/06/Neo4j%20-%20Cypher%20Query%20Language%20-%20%E6%8C%87%E5%BC%95/</loc>
     
     <lastmod>2018-09-17</lastmod>
@@ -14,15 +59,6 @@
     <loc>http://example.com/2018/09/13/%E7%88%AC%E8%99%AB%20-%20%E8%B1%86%E7%93%A3%20Top%20250/</loc>
     
     <lastmod>2018-09-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/2018/09/04/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E5%AE%9E%E8%B7%B5%EF%BC%9AGlass%20Classiciation%20-%20Kaggle%20Datasets/</loc>
-    
-    <lastmod>2018-09-13</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -54,13 +90,6 @@
     <priority>1.0</priority>
   </url>
 
-  
-  <url>
-    <loc>http://example.com/tags/kNN/</loc>
-    <lastmod>2022-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
   
   <url>
     <loc>http://example.com/tags/Algorithem/</loc>
