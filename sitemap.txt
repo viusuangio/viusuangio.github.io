@@ -1,3 +1,5 @@
+http://example.com/2022/04/16/Markdown%20%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/
+http://example.com/2022/04/14/Axure%20common%20shortcuts/
 http://example.com/2018/09/04/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E5%AE%9E%E8%B7%B5%EF%BC%9AGlass%20Classification%20-%20Kaggle%20Datasets/
 http://example.com/about/index.html
 http://example.com/link/index.html
@@ -8,12 +10,17 @@ http://example.com/2018/09/13/%E7%88%AC%E8%99%AB%20-%20%E8%B1%86%E7%93%A3%20Top%
 http://example.com/2018/09/12/Neo4j%20Cypher%20%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83/
 http://example.com/2018/09/04/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%20Knowledge%20Graph/
 http://example.com/
-http://example.com/tags/Algorithem/
+http://example.com/tags/Axure/
+http://example.com/tags/Tutorial/
+http://example.com/tags/Markdown/
+http://example.com/tags/Algorithm/
 http://example.com/tags/CQL/
 http://example.com/tags/%E7%88%AC%E8%99%AB/
 http://example.com/tags/Python/
 http://example.com/tags/%E6%95%B0%E6%8D%AE/
 http://example.com/tags/KG/
+http://example.com/categories/Axure/
+http://example.com/categories/Markdown/
 http://example.com/categories/Machine-Learning/
 http://example.com/categories/Cypher/
 http://example.com/categories/Python/
