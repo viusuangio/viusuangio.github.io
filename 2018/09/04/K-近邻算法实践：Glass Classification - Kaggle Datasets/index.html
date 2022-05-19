@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>K-近邻算法实践：Glass Classification - Kaggle Datasets | Cruising</title><meta name="keywords" content="KNN,近邻算法"><meta name="author" content="Aspirin,kinomu@sina.com"><meta name="copyright" content="Aspirin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="可从GitHub(Glass Classification)下载本文源码以及样本数据集  前言本文主要目的是通过 KNN 也就是 k-近邻算法 来实现一个Glass Classiciation，文中使用的数据来自 Kaggle Datasets ,可以从该页面下载这份数据文件，也可以直接从我 Github 上下载源代码，源代码包括了本文所有内容。 k-近邻算法是 Machine Learning">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>K-近邻算法实践：Glass Classification - Kaggle Datasets | Cruising</title><meta name="keywords" content="KNN,近邻算法"><meta name="author" content="Aspirin,kinomu@sina.com"><meta name="copyright" content="Aspirin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="可从GitHub(Glass Classification)下载本文源码以及样本数据集  前言 本文主要目的是通过 KNN 也就是 k-近邻算法 来实现一个Glass Classiciation，文中使用的数据来自 Kaggle Datasets ,可以从该页面下载这份数据文件，也可以直接从我 Github 上下载源代码，源代码包括了本文所有内容。 k-近邻算法是 Machine Learnin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="K-近邻算法实践：Glass Classification - Kaggle Datasets">
 <meta property="og:url" content="http://example.com/2018/09/04/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E5%AE%9E%E8%B7%B5%EF%BC%9AGlass%20Classification%20-%20Kaggle%20Datasets/index.html">
 <meta property="og:site_name" content="Cruising">
-<meta property="og:description" content="可从GitHub(Glass Classification)下载本文源码以及样本数据集  前言本文主要目的是通过 KNN 也就是 k-近邻算法 来实现一个Glass Classiciation，文中使用的数据来自 Kaggle Datasets ,可以从该页面下载这份数据文件，也可以直接从我 Github 上下载源代码，源代码包括了本文所有内容。 k-近邻算法是 Machine Learning">
+<meta property="og:description" content="可从GitHub(Glass Classification)下载本文源码以及样本数据集  前言 本文主要目的是通过 KNN 也就是 k-近邻算法 来实现一个Glass Classiciation，文中使用的数据来自 Kaggle Datasets ,可以从该页面下载这份数据文件，也可以直接从我 Github 上下载源代码，源代码包括了本文所有内容。 k-近邻算法是 Machine Learnin">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s1.ax1x.com/2022/04/14/LQj7QA.png">
 <meta property="article:published_time" content="2018-09-03T16:00:00.000Z">
@@ -165,146 +165,156 @@
 </head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 站点链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-info-circle"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s1.ax1x.com/2022/04/14/LQj7QA.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Cruising</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 站点链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-info-circle"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">K-近邻算法实践：Glass Classification - Kaggle Datasets</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-09-03T16:00:00.000Z" title="发表于 2018-09-04 00:00:00">2018-09-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-04-16T06:10:25.411Z" title="更新于 2022-04-16 14:10:25">2022-04-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Machine-Learning/">Machine Learning</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="K-近邻算法实践：Glass Classification - Kaggle Datasets"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
 <p>可从<a target="_blank" rel="noopener" href="https://github.com/viusuangio/machine-learning-algorithm#machine-learning-algorithm">GitHub(Glass Classification)</a>下载本文源码以及样本数据集</p>
 </blockquote>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文主要目的是通过 <strong>KNN</strong> 也就是 <strong>k-近邻算法</strong> 来实现一个Glass Classiciation，文中使用的数据来自 <a target="_blank" rel="noopener" href="https://www.kaggle.com/uciml/glass/home">Kaggle Datasets</a> ,可以从该页面下载这份数据文件，也可以直接从我 Github 上下载源代码，源代码包括了本文所有内容。 k-近邻算法是 Machine Learning 的一个入门级算法，具备有效性以及易学习。在文章中，我希望通过强调 k-近邻算法 的基本理论，以及如何使用距离测量的方法来进行分类，理论部分的内容十分重要，这关乎到你是否能够理解在面对什么样的数据时可以采用 KNN ，而什么时候又不是那么的适合。</p>
+<h2 id="前言">前言</h2>
+<p>本文主要目的是通过 <strong>KNN</strong> 也就是 <strong>k-近邻算法</strong> 来实现一个Glass Classiciation，文中使用的数据来自 <a target="_blank" rel="noopener" href="https://www.kaggle.com/uciml/glass/home">Kaggle Datasets</a> ,可以从该页面下载这份数据文件，也可以直接从我 Github 上下载源代码，源代码包括了本文所有内容。 k-近邻算法是 Machine Learning 的一个入门级算法，具备有效性以及易学习。在文章中，我希望通过强调 k-近邻算法 的基本理论，以及如何使用距离测量的方法来进行分类，理论部分的内容十分重要，这关乎到你是否能够理解在面对什么样的数据时可以采用 KNN ，而什么时候又不是那么的适合。</p>
 <span id="more"></span>
 <p>简单来说，k-近邻算法采用测量不同特征值之间的距离，来对数据进行分类。这个距离的计算也是十分简单的，如果你不知道什么是 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E5%BA%A6%E9%87%8F/1274107?fr=aladdin">欧式距离公式</a> (也有人称它为欧几里得度量法)，那么建议先去了解一下，它是比较简单易懂的。另外代码实现部分，将会使用Python，所以前提要求是你需要学会最基本的Python语法。如果你不懂Python——互联网上有非常多关于 Python 的教程，个人建议可以看看 <a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000">廖雪峰的Python教学</a> ， 如果有人认为这个是广告，请联系一下廖雪峰让他支付一下广告费。：)</p>
 <table>
 <thead>
 <tr>
-<th align="center">k-近邻算法</th>
+<th style="text-align:center">k-近邻算法</th>
 <th></th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">优点</td>
+<tbody>
+<tr>
+<td style="text-align:center">优点</td>
 <td>具有较高的精度，且对异常值不敏感、无数据输入假定</td>
 </tr>
 <tr>
-<td align="center">缺点</td>
+<td style="text-align:center">缺点</td>
 <td>计算复杂度较高（即计算效率并不是那么理想），空间复杂度高</td>
 </tr>
 <tr>
-<td align="center">适用</td>
+<td style="text-align:center">适用</td>
 <td>数值型数据以及标称型数据</td>
 </tr>
-</tbody></table>
-<p>上表对 KNN 的优缺点以及适用范围进行了简单的描述，当前若没有直观的印象，可以在接下来的内容中，逐一去理解，我会尽量将所有可能存在的疑问，以及实现的每一个步骤都描述清楚。如果文章中的描述有所纰漏，希望能够及时指出，我的邮箱地址为：<strong><a href="mailto:&#x6c;&#x69;&#x6e;&#x79;&#117;&#64;&#x73;&#122;&#107;&#105;&#110;&#x67;&#x64;&#x6f;&#109;&#x2e;&#x63;&#x6f;&#x6d;">&#x6c;&#x69;&#x6e;&#x79;&#117;&#64;&#x73;&#122;&#107;&#105;&#110;&#x67;&#x64;&#x6f;&#109;&#x2e;&#x63;&#x6f;&#x6d;</a></strong>，不甚感激。</p>
-<h2 id="k-近邻算法概述"><a href="#k-近邻算法概述" class="headerlink" title="k - 近邻算法概述"></a>k - 近邻算法概述</h2><p> 我们现在先假设存在某数据集合 <strong>Datasets</strong> ，将其视为样本。这个样本数据集合中每一个数据都存在一个标签，换句话说，我们能够知道这个样本数据集中的每一数据，与所属分类的一个对应关系是什么。当我们输入没有进行标记的数据时，将新数据的每个特征与样本数据集中数据对应的特征进行比较，然后通过算法提取出在这个样本数据集中，特征最为相似的数据（近邻数据）的分类标签。在一般情况下，只需要提取样本数据集中 k 个近邻数据，通常不会大于20个，那么在 k 个数据中出现最多的标签，即是新数据的标签。</p>
+</tbody>
+</table>
+<p>上表对 KNN 的优缺点以及适用范围进行了简单的描述，当前若没有直观的印象，可以在接下来的内容中，逐一去理解，我会尽量将所有可能存在的疑问，以及实现的每一个步骤都描述清楚。如果文章中的描述有所纰漏，希望能够及时指出，我的邮箱地址为：<strong><a href="mailto:linyu@szkingdom.com">linyu@szkingdom.com</a></strong>，不甚感激。</p>
+<h2 id="k-近邻算法概述">k - 近邻算法概述</h2>
+<p>我们现在先假设存在某数据集合 <strong>Datasets</strong> ，将其视为样本。这个样本数据集合中每一个数据都存在一个标签，换句话说，我们能够知道这个样本数据集中的每一数据，与所属分类的一个对应关系是什么。当我们输入没有进行标记的数据时，将新数据的每个特征与样本数据集中数据对应的特征进行比较，然后通过算法提取出在这个样本数据集中，特征最为相似的数据（近邻数据）的分类标签。在一般情况下，只需要提取样本数据集中 k 个近邻数据，通常不会大于20个，那么在 k 个数据中出现最多的标签，即是新数据的标签。</p>
 <p>举一个简单的例子来理解上面这段话的描述。详见下表样本数据集的表示，即通过一部电影中出现的打斗镜头，以及接吻镜头，为其指定标签为动作片或爱情片。当输入新的数据，打斗镜头有18个，接吻镜头有90个，通过算法我们来计算这个新输入的电影，应该是哪一种类型。</p>
 <table>
 <thead>
 <tr>
-<th align="center">电影名称(数据)</th>
-<th align="center">打斗镜头(数据)</th>
-<th align="center">接吻镜头(数据)</th>
-<th align="center">电影类型(标签)</th>
+<th style="text-align:center">电影名称(数据)</th>
+<th style="text-align:center">打斗镜头(数据)</th>
+<th style="text-align:center">接吻镜头(数据)</th>
+<th style="text-align:center">电影类型(标签)</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">California Man</td>
-<td align="center">3</td>
-<td align="center">104</td>
-<td align="center">爱情片</td>
+<tbody>
+<tr>
+<td style="text-align:center">California Man</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">104</td>
+<td style="text-align:center">爱情片</td>
 </tr>
 <tr>
-<td align="center">He’s Not Really into Dudes</td>
-<td align="center">2</td>
-<td align="center">100</td>
-<td align="center">爱情片</td>
+<td style="text-align:center">He’s Not Really into Dudes</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">爱情片</td>
 </tr>
 <tr>
-<td align="center">Beautiful Woman</td>
-<td align="center">1</td>
-<td align="center">81</td>
-<td align="center">爱情片</td>
+<td style="text-align:center">Beautiful Woman</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">81</td>
+<td style="text-align:center">爱情片</td>
 </tr>
 <tr>
-<td align="center">Kevin Longblade</td>
-<td align="center">101</td>
-<td align="center">10</td>
-<td align="center">动作片</td>
+<td style="text-align:center">Kevin Longblade</td>
+<td style="text-align:center">101</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">动作片</td>
 </tr>
 <tr>
-<td align="center">Robo Slayer 3000</td>
-<td align="center">99</td>
-<td align="center">5</td>
-<td align="center">动作片</td>
+<td style="text-align:center">Robo Slayer 3000</td>
+<td style="text-align:center">99</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">动作片</td>
 </tr>
 <tr>
-<td align="center">Amped II</td>
-<td align="center">98</td>
-<td align="center">2</td>
-<td align="center">动作片</td>
+<td style="text-align:center">Amped II</td>
+<td style="text-align:center">98</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">动作片</td>
 </tr>
 <tr>
-<td align="center"><strong>?</strong></td>
-<td align="center"><strong>18</strong></td>
-<td align="center"><strong>90</strong></td>
-<td align="center">未确认</td>
+<td style="text-align:center"><strong>?</strong></td>
+<td style="text-align:center"><strong>18</strong></td>
+<td style="text-align:center"><strong>90</strong></td>
+<td style="text-align:center">未确认</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>通过欧式距离公式我们计算出新电影数据距离样本数据的距离（这里先不纠结于怎么计算出来的，随后我会进行详细解释）</p>
 <table>
 <thead>
 <tr>
-<th align="center">电影名称(数据)</th>
-<th align="center">与新数据的距离</th>
+<th style="text-align:center">电影名称(数据)</th>
+<th style="text-align:center">与新数据的距离</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">California Man</td>
-<td align="center">20.5</td>
+<tbody>
+<tr>
+<td style="text-align:center">California Man</td>
+<td style="text-align:center">20.5</td>
 </tr>
 <tr>
-<td align="center">He’s Not Really into Dudes</td>
-<td align="center">18.7</td>
+<td style="text-align:center">He’s Not Really into Dudes</td>
+<td style="text-align:center">18.7</td>
 </tr>
 <tr>
-<td align="center">Beautiful Woman</td>
-<td align="center">19.2</td>
+<td style="text-align:center">Beautiful Woman</td>
+<td style="text-align:center">19.2</td>
 </tr>
 <tr>
-<td align="center">Kevin Longblade</td>
-<td align="center">115.3</td>
+<td style="text-align:center">Kevin Longblade</td>
+<td style="text-align:center">115.3</td>
 </tr>
 <tr>
-<td align="center">Robo Slayer 3000</td>
-<td align="center">117.4</td>
+<td style="text-align:center">Robo Slayer 3000</td>
+<td style="text-align:center">117.4</td>
 </tr>
 <tr>
-<td align="center">Amped II</td>
-<td align="center">118.9</td>
+<td style="text-align:center">Amped II</td>
+<td style="text-align:center">118.9</td>
 </tr>
-</tbody></table>
-<p> 在这个距离表中我们能够很直观的找到与新数据距离最近的几部电影，假设 <strong>k &#x3D; 3</strong>（意思为找出3个距离最近），那么就是 <strong>He’s Not Really into Dudes</strong> 、 <strong>Beautiful Woman</strong> 以及 <strong>California Man</strong> 这三部电影。</p>
+</tbody>
+</table>
+<p>在这个距离表中我们能够很直观的找到与新数据距离最近的几部电影，假设 <strong>k = 3</strong>（意思为找出3个距离最近），那么就是 <strong>He’s Not Really into Dudes</strong> 、 <strong>Beautiful Woman</strong> 以及 <strong>California Man</strong> 这三部电影。</p>
 <table>
 <thead>
 <tr>
-<th align="center">电影名称(数据)</th>
-<th align="center">打斗镜头(数据)</th>
-<th align="center">接吻镜头(数据)</th>
-<th align="center">电影类型(标签)</th>
+<th style="text-align:center">电影名称(数据)</th>
+<th style="text-align:center">打斗镜头(数据)</th>
+<th style="text-align:center">接吻镜头(数据)</th>
+<th style="text-align:center">电影类型(标签)</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">He’s Not Really into Dudes</td>
-<td align="center">2</td>
-<td align="center">100</td>
-<td align="center">爱情片</td>
+<tbody>
+<tr>
+<td style="text-align:center">He’s Not Really into Dudes</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">爱情片</td>
 </tr>
 <tr>
-<td align="center">Beautiful Woman</td>
-<td align="center">1</td>
-<td align="center">81</td>
-<td align="center">爱情片</td>
+<td style="text-align:center">Beautiful Woman</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">81</td>
+<td style="text-align:center">爱情片</td>
 </tr>
 <tr>
-<td align="center">California Man</td>
-<td align="center">3</td>
-<td align="center">104</td>
-<td align="center">爱情片</td>
+<td style="text-align:center">California Man</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">104</td>
+<td style="text-align:center">爱情片</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>我们在 k 这个集中找出出现最多的电影类型(标签)，决定新数据的电影类型。显而易见，这里的三部电影都为爱情片，因此我们判定输入的新数据是一部爱情电影。</p>
 <pre><code>KNN的具体实现流程：
 </code></pre>
@@ -316,90 +326,96 @@
 <li>使用算法：输入新数据，通过算法输出结果，运算 KNN 判定输入数据的分类，执行后续业务处理</li>
 </ol>
 <p>这个流程中，数据收集步骤在本文开头就已经做好了，即下载我们所需要样本数据集。如果没有下载，现在该准备一下了，接下来我们就进行实际操作。</p>
-<h2 id="从文件中解析数据"><a href="#从文件中解析数据" class="headerlink" title="从文件中解析数据"></a>从文件中解析数据</h2><p>拿到样本数据集的第一件事情并不是直接开始编写代码，而是先分析确认这个样本数据集中的主要特征。首先打开下载来的Datasets : <strong>glass.csv</strong>，每个样本数据一行，共有214行，其中包含的主要特征如下：</p>
+<h2 id="从文件中解析数据">从文件中解析数据</h2>
+<p>拿到样本数据集的第一件事情并不是直接开始编写代码，而是先分析确认这个样本数据集中的主要特征。首先打开下载来的Datasets : <strong>glass.csv</strong>，每个样本数据一行，共有214行，其中包含的主要特征如下：</p>
 <table>
 <thead>
 <tr>
-<th align="center">特征</th>
-<th align="center">特征含义</th>
+<th style="text-align:center">特征</th>
+<th style="text-align:center">特征含义</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">RI</td>
-<td align="center">折射率</td>
+<tbody>
+<tr>
+<td style="text-align:center">RI</td>
+<td style="text-align:center">折射率</td>
 </tr>
 <tr>
-<td align="center">Na</td>
-<td align="center">钠元素</td>
+<td style="text-align:center">Na</td>
+<td style="text-align:center">钠元素</td>
 </tr>
 <tr>
-<td align="center">Mg</td>
-<td align="center">镁元素</td>
+<td style="text-align:center">Mg</td>
+<td style="text-align:center">镁元素</td>
 </tr>
 <tr>
-<td align="center">Al</td>
-<td align="center">铝元素</td>
+<td style="text-align:center">Al</td>
+<td style="text-align:center">铝元素</td>
 </tr>
 <tr>
-<td align="center">Si</td>
-<td align="center">硅元素</td>
+<td style="text-align:center">Si</td>
+<td style="text-align:center">硅元素</td>
 </tr>
 <tr>
-<td align="center">K</td>
-<td align="center">钾元素</td>
+<td style="text-align:center">K</td>
+<td style="text-align:center">钾元素</td>
 </tr>
 <tr>
-<td align="center">Ca</td>
-<td align="center">钙元素</td>
+<td style="text-align:center">Ca</td>
+<td style="text-align:center">钙元素</td>
 </tr>
 <tr>
-<td align="center">Ba</td>
-<td align="center">钡元素</td>
+<td style="text-align:center">Ba</td>
+<td style="text-align:center">钡元素</td>
 </tr>
 <tr>
-<td align="center">Fe</td>
-<td align="center">铁元素</td>
+<td style="text-align:center">Fe</td>
+<td style="text-align:center">铁元素</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>其中的 <strong>Type</strong> 为标签，以 <strong>1-7</strong> 的数字作为标记，按照数据提供方描述，分别对应的玻璃类型如下：</p>
 <table>
 <thead>
 <tr>
-<th align="center">标签值</th>
-<th align="center">玻璃类型</th>
+<th style="text-align:center">标签值</th>
+<th style="text-align:center">玻璃类型</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">1</td>
-<td align="center">建筑窗户浮法玻璃</td>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">建筑窗户浮法玻璃</td>
 </tr>
 <tr>
-<td align="center">2</td>
-<td align="center">建筑窗户无浮法玻璃</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">建筑窗户无浮法玻璃</td>
 </tr>
 <tr>
-<td align="center">3</td>
-<td align="center">汽车浮法玻璃</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">汽车浮法玻璃</td>
 </tr>
 <tr>
-<td align="center">4</td>
-<td align="center">（ 本样本数据集中没有这类型数据 ）</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">（ 本样本数据集中没有这类型数据 ）</td>
 </tr>
 <tr>
-<td align="center">5</td>
-<td align="center">容器玻璃</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">容器玻璃</td>
 </tr>
 <tr>
-<td align="center">6</td>
-<td align="center">餐具玻璃</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">餐具玻璃</td>
 </tr>
 <tr>
-<td align="center">7</td>
-<td align="center">前照灯玻璃</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">前照灯玻璃</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>那么现在我们对样本数据已经具备一定的了解了，要做的是输入新的各项特征值，然后能够通过KNN算法进行分类，将新数据标记出1-7的玻璃类型。接下来我们就着重实现，将这些特征数据输入到CNN算法中，构建一个分类器。</p>
-<h3 id="将样本数据集转换为NumPy的解析方法"><a href="#将样本数据集转换为NumPy的解析方法" class="headerlink" title="将样本数据集转换为NumPy的解析方法"></a>将样本数据集转换为NumPy的解析方法</h3><p>首先我们先将CSV文件中的所有数据（除了第一行，那是表头）复制，然后粘贴到新建的txt文本中并保存为glass.txt，拿txt当作样本数据文件，里面应该只包含如下类似数据</p>
+<h3 id="将样本数据集转换为NumPy的解析方法">将样本数据集转换为NumPy的解析方法</h3>
+<p>首先我们先将CSV文件中的所有数据（除了第一行，那是表头）复制，然后粘贴到新建的txt文本中并保存为glass.txt，拿txt当作样本数据文件，里面应该只包含如下类似数据</p>
 <pre><code>1.51766	13.21	3.69	1.29	72.61	0.57	8.22	0	0	    1
 1.51742	13.27	3.62	1.24	73.08	0.55	8.07	0	0	    1
 1.51596	12.79	3.61	1.62	72.97	0.64	8.07	0	0.26	1
@@ -411,10 +427,8 @@
 <p>随即我们创建一个KNN.py的Python模块，并在其中构建一个 <strong>file2matrix</strong> 函数，这个函数用来处理输入格式，传入文件名字符串，返回样本矩阵以及类标签向量。如果你不了解什么是矩阵，请随后去补充学习这方面的知识。这里仅简单说一下返回的样本矩阵 —— 该矩阵的总行数为样本数据的总行数，即已知的 <strong>214</strong> 行 ，而列则是 样本数据中的<strong>9</strong> 个特征，即为9列，所以返回的将会是一个 <strong>214 * 9</strong> 的矩阵 ；</p>
 <p>在写代码之前，导包:</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
-
 <p><strong>file2matrix</strong>：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">file2matrix</span>(<span class="params">filename</span>):</span><br><span class="line">    <span class="comment"># 读取文本文件数据</span></span><br><span class="line">    file = <span class="built_in">open</span>(filename)</span><br><span class="line">    data_array = file.readlines()</span><br><span class="line">    lines_count = <span class="built_in">len</span>(data_array)</span><br><span class="line">    <span class="comment"># 创建NumPy矩阵以及类标签向量</span></span><br><span class="line">    sample_mat = np.zeros((lines_count, <span class="number">9</span>))  <span class="comment"># 1</span></span><br><span class="line">    class_label_vector = [] <span class="comment"># 2</span></span><br><span class="line">    index = <span class="number">0</span></span><br><span class="line">    <span class="comment"># 解析文本数据到列表中</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> data_array:</span><br><span class="line">        line = line.strip()</span><br><span class="line">        list_from_line = line.split(<span class="string">&#x27;\t&#x27;</span>)</span><br><span class="line">        sample_mat[index, :] = list_from_line[<span class="number">0</span>:<span class="number">9</span>]</span><br><span class="line">        class_label_vector.append(<span class="built_in">int</span>(list_from_line[-<span class="number">1</span>]))</span><br><span class="line">        index += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> sample_mat, class_label_vector</span><br></pre></td></tr></table></figure>
-
 <pre><code>注释：
 #1 - 利用NumPy构建矩阵，np.zeros(矩阵行数，矩阵列数)
 #2 - 构建一个array,存放类标签向量
@@ -423,29 +437,102 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sample_mat,class_label_vector = file2matrix(<span class="string">&quot;glass.txt&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(sample_mat)</span><br><span class="line"><span class="built_in">print</span>(class_label_vector[:<span class="number">20</span>])  <span class="comment"># 输出前20个，输出全部也行，去掉 [:20]</span></span><br></pre></td></tr></table></figure>
 <p>输出结果：</p>
 <figure class="highlight text"><table><tr><td class="code"><pre><span class="line">[[ 1.52101 13.64    4.49    ...  8.75     0.       0.     ]</span><br><span class="line">[ 1.51761 13.89     3.6     ...  7.83     0.       0.     ]</span><br><span class="line">[ 1.51618 13.53     3.55    ...  7.78     0.       0.     ]</span><br><span class="line">...</span><br><span class="line">[ 1.52065 14.36     0.      ...  8.44     1.64     0.     ]</span><br><span class="line">[ 1.51651 14.38     0.      ...  8.48     1.57     0.     ]</span><br><span class="line">[ 1.51711 14.23     0.      ...  8.62     1.67     0.     ]]</span><br><span class="line">[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]</span><br></pre></td></tr></table></figure>
-
 <p>根据输出结果已经却认，现在已经成功的从文本文件中导入了样本数据，并且按照我们想要的格式进行了处理，接下来就需要对些数据的真实含义了，为了能够更直观的浏览，用图形化方式展示一下数据，以便辨识数据模式。</p>
-<h3 id="使用Matplotlib创建散点图"><a href="#使用Matplotlib创建散点图" class="headerlink" title="使用Matplotlib创建散点图"></a>使用Matplotlib创建散点图</h3><p>在KNN中创建新的函数 <strong>data2view</strong> ：</p>
+<h3 id="使用Matplotlib创建散点图">使用Matplotlib创建散点图</h3>
+<p>在KNN中创建新的函数 <strong>data2view</strong> ：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">data2view</span>(<span class="params">sample_mat, class_label_vector</span>):</span><br><span class="line">    fig = plt.figure()</span><br><span class="line">    ax = fig.add_subplot(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    ax.scatter(sample_mat[:, <span class="number">0</span>], sample_mat[:, <span class="number">4</span>], <span class="number">2</span> * np.array(class_label_vector), <span class="number">2</span> * np.array(class_label_vector))</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
-
 <p>其中的<code>[:, 0]</code>表示为X轴表示从传入的矩阵中取所有行的第一列，第一列所代表的是 RI (折射率)，<code>[:, 4]</code>表示矩阵所有行的第五列，也就是Si（硅元素）。以此类推你可以自己修改这两个参数所取的列数，查看分类在这两个特征值之间的散点分布的情况进行分析。当然Matplotlib除了构建散点图之外还可以构建出其他的图表，你可以通过自己学习Matplotlib来实现，本文重点仅倾向于实现 k-近邻算法。</p>
 <p>通过对样本数据的分析不难发现，玻璃的主要构成元素是硅元素，所以散点图是想表示不同分类的玻璃在折射率和硅元素含量这样的一张二维表上的分布情况。</p>
 <p><img src="https://s1.ax1x.com/2018/09/04/iSWyAe.png" alt="iSWyAe.png"></p>
-<h3 id="KNN算法的实现"><a href="#KNN算法的实现" class="headerlink" title="KNN算法的实现"></a>KNN算法的实现</h3><p>在上一小节中我们构建了一张散点图来分析硅元素和折射率对玻璃分类的一个影响，实际上我们也不需要太过于关于去分析这张图，因为我接下来要说的是如何计算计算两个向量点 <strong>xA</strong> 和 <strong>xB</strong>之间的距离，将会用到<strong>欧式距离公式</strong>：<br>$$<br>\Large d&#x3D;\sqrt{(xA_0-xB_0)^2+(xA_1-xB_1)^2}<br>$$<br>这个公式十分的简单，例如要计算点（1，2）与（3，4）之间的距离：<br>$$<br>\sqrt{(3-1)^2+(4-2)^2}<br>$$<br>那么如果数据集存在着多个特征值，则点（1，0，0，1，0）与（2，5，2，3，4）之间的距离计算为：<br>$$<br>\sqrt{(2-1)^2+(5-0)^2+(2-0)^2+(3-1)^2+(4-0)^2}<br>$$<br>在此我假设你已经学会了如何使用欧式距离公式，那么接下来我们就该设计一下具体的KNN算法实现，先做一段伪代码，根据伪代码我们还能够理清思路，让真正的代码编写工作变得有条不紊：</p>
+<h3 id="KNN算法的实现">KNN算法的实现</h3>
+<p>在上一小节中我们构建了一张散点图来分析硅元素和折射率对玻璃分类的一个影响，实际上我们也不需要太过于关于去分析这张图，因为我接下来要说的是如何计算计算两个向量点 <strong>xA</strong> 和 <strong>xB</strong>之间的距离，将会用到<strong>欧式距离公式</strong>：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mstyle mathsize="1.44em"><mi>d</mi><mo>=</mo><msqrt><mrow><mo stretchy="false">(</mo><mi>x</mi><msub><mi>A</mi><mn>0</mn></msub><mo>−</mo><mi>x</mi><msub><mi>B</mi><mn>0</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false">(</mo><mi>x</mi><msub><mi>A</mi><mn>1</mn></msub><mo>−</mo><mi>x</mi><msub><mi>B</mi><mn>1</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow></msqrt></mstyle></mrow><annotation encoding="application/x-tex">\Large d=\sqrt{(xA_0-xB_0)^2+(xA_1-xB_1)^2}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;"></span><span class="mord mathnormal sizing reset-size6 size8">d</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel sizing reset-size6 size8">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.7856em;vertical-align:-0.3688em;"></span><span class="mord sqrt sizing reset-size6 size8"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9839em;"><span class="svg-align" style="top:-3.44em;"><span class="pstrut" style="height:3.44em;"></span><span class="mord" style="padding-left:1em;"><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2975em;"><span style="top:-2.85em;margin-left:0em;margin-right:0.0347em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size8 size6 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">x</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2975em;"><span style="top:-2.85em;margin-left:-0.0502em;margin-right:0.0347em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size8 size6 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7365em;"><span style="top:-3.289em;margin-right:0.0347em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size8 size6 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2975em;"><span style="top:-2.85em;margin-left:0em;margin-right:0.0347em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size8 size6 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">x</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2975em;"><span style="top:-2.85em;margin-left:-0.0502em;margin-right:0.0347em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size8 size6 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7365em;"><span style="top:-3.289em;margin-right:0.0347em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size8 size6 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.1839em;"><span class="pstrut" style="height:3.44em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.28em' viewBox='0 0 400000 1296' preserveAspectRatio='xMinYMin slice'><path d='M263,681c0.7,0,18,39.7,52,119
+c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
+c340,-704.7,510.7,-1060.3,512,-1067
+l0 -0
+c4.7,-7.3,11,-11,19,-11
+H40000v40H1012.3
+s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
+c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
+s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
+c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
+M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2561em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>这个公式十分的简单，例如要计算点（1，2）与（3，4）之间的距离：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msqrt><mrow><mo stretchy="false">(</mo><mn>3</mn><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false">(</mo><mn>4</mn><mo>−</mo><mn>2</mn><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{(3-1)^2+(4-2)^2}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.2561em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9839em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mopen">(</span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mopen">(</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">2</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-2.9439em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.28em' viewBox='0 0 400000 1296' preserveAspectRatio='xMinYMin slice'><path d='M263,681c0.7,0,18,39.7,52,119
+c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
+c340,-704.7,510.7,-1060.3,512,-1067
+l0 -0
+c4.7,-7.3,11,-11,19,-11
+H40000v40H1012.3
+s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
+c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
+s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
+c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
+M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2561em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>那么如果数据集存在着多个特征值，则点（1，0，0，1，0）与（2，5，2，3，4）之间的距离计算为：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msqrt><mrow><mo stretchy="false">(</mo><mn>2</mn><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false">(</mo><mn>5</mn><mo>−</mo><mn>0</mn><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false">(</mo><mn>2</mn><mo>−</mo><mn>0</mn><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false">(</mo><mn>3</mn><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false">(</mo><mn>4</mn><mo>−</mo><mn>0</mn><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{(2-1)^2+(5-0)^2+(2-0)^2+(3-1)^2+(4-0)^2}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.2561em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9839em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mopen">(</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mopen">(</span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">0</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">0</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mopen">(</span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mopen">(</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">0</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-2.9439em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.28em' viewBox='0 0 400000 1296' preserveAspectRatio='xMinYMin slice'><path d='M263,681c0.7,0,18,39.7,52,119
+c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
+c340,-704.7,510.7,-1060.3,512,-1067
+l0 -0
+c4.7,-7.3,11,-11,19,-11
+H40000v40H1012.3
+s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
+c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
+s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
+c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
+M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2561em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>在此我假设你已经学会了如何使用欧式距离公式，那么接下来我们就该设计一下具体的KNN算法实现，先做一段伪代码，根据伪代码我们还能够理清思路，让真正的代码编写工作变得有条不紊：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">对未知类别属性的数据集中的每个点一次执行一下操作：</span><br><span class="line">（1）计算已知类别数据集中的点与当前点之间的距离；</span><br><span class="line">（2）按照距离进行递增排序（即从小到大排序）</span><br><span class="line">（3）选取与当前点距离最近的 k 个点</span><br><span class="line">（4）确定 k 个点中类别的出现频率</span><br><span class="line">（5）返回前 k 个点出现频率最高的类别作为当前点的预测结果</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">classify</span>(<span class="params">inX, dataSet, labels, k</span>):</span><br><span class="line">    <span class="comment"># 计算距离</span></span><br><span class="line">    dataset_size = dataSet.shape[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">print</span>(np.tile(inX, (dataset_size, <span class="number">1</span>)))</span><br><span class="line">    diff_mat = np.tile(inX, (dataset_size, <span class="number">1</span>)) - dataSet</span><br><span class="line">    <span class="built_in">print</span>(diff_mat)</span><br><span class="line">    sq_diff_mat = diff_mat ** <span class="number">2</span></span><br><span class="line">    sq_distances = sq_diff_mat.<span class="built_in">sum</span>(axis = <span class="number">1</span>)</span><br><span class="line">    distances = sq_distances ** <span class="number">0.5</span></span><br><span class="line">    <span class="built_in">print</span>(distances)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 选择距离最小的k个点</span></span><br><span class="line">    sorted_distances = distances.argsort()</span><br><span class="line">    class_count = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">        label = labels[sorted_distances[i]]</span><br><span class="line">        class_count[label] = class_count.get(label, <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 排序</span></span><br><span class="line">    sorted_class_count = <span class="built_in">sorted</span>(class_count.items(), key=operator.itemgetter(<span class="number">1</span>),  reverse=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">return</span> sorted_class_count[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">使用样本中数据进行一个简单的测试</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;可能分类：&quot;</span>, classify([<span class="number">1.52101</span>, <span class="number">13.64</span>, <span class="number">4.49</span>, <span class="number">1.1</span>, <span class="number">71.78</span>, <span class="number">0.06</span>, <span class="number">8.75</span>, <span class="number">0</span>, <span class="number">0</span>], sample_mat, class_label_vector, <span class="number">5</span>))  <span class="comment"># 分类:1 ， 返回:1  √</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;可能分类：&quot;</span>, classify([<span class="number">1.53125</span>, <span class="number">10.73</span>, <span class="number">0</span>, <span class="number">2.1</span>, <span class="number">69.81</span>, <span class="number">0.58</span>, <span class="number">13.3</span>, <span class="number">3.15</span>, <span class="number">0.28</span>], sample_mat, class_label_vector, <span class="number">5</span>))  <span class="comment"># 分类:2 ， 返回:2  √</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="归一化特征值"><a href="#归一化特征值" class="headerlink" title="归一化特征值"></a>归一化特征值</h3><p>从简单的输出测试中我们已经能够看到，似乎是完成了KNN算法。但是这里不得不提出一个问题，让我看来手写一下这个程序中的方程式：<br>$$<br>\sqrt{(1.53125-1.52101)^2+(10.73-13.64)^2+……+(2.1-1.1)^2+(69.81-71.78)^2+……}<br>$$<br>应该不难看出，整个公式中，数字差值问题是会影响到计算结果的，在每一组方程计算中，可能都会出现某一特征值过大于其他特征值。我们或许可以这样认为：要对玻璃进行分类，样本数据中玻璃所有构成元素以及折射率应该都是<strong>等权重</strong>的，不应该出现某一个值过大于其他值，从而照成计算的影响。</p>
-<p>那么在处理这样不同取值范围的特征值时，可以采用数值归一化，将取值范围处理为0到1或者-1到1的区间。<br>$$<br>归一化值 &#x3D; \frac{输入值-数据集中最小值}{数据集中最大值-数据集中最小值}<br>$$</p>
+<h3 id="归一化特征值">归一化特征值</h3>
+<p>从简单的输出测试中我们已经能够看到，似乎是完成了KNN算法。但是这里不得不提出一个问题，让我看来手写一下这个程序中的方程式：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msqrt><mrow><mo stretchy="false">(</mo><mn>1.53125</mn><mo>−</mo><mn>1.52101</mn><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false">(</mo><mn>10.73</mn><mo>−</mo><mn>13.64</mn><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mo>…</mo><mo>…</mo><mo>+</mo><mo stretchy="false">(</mo><mn>2.1</mn><mo>−</mo><mn>1.1</mn><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false">(</mo><mn>69.81</mn><mo>−</mo><mn>71.78</mn><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mo>…</mo><mo>…</mo></mrow></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{(1.53125-1.52101)^2+(10.73-13.64)^2+……+(2.1-1.1)^2+(69.81-71.78)^2+……}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.2561em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9839em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mopen">(</span><span class="mord">1.53125</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1.52101</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mopen">(</span><span class="mord">10.73</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">13.64</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="minner">……</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mopen">(</span><span class="mord">2.1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1.1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mopen">(</span><span class="mord">69.81</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">71.78</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="minner">……</span></span></span><span style="top:-2.9439em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.28em' viewBox='0 0 400000 1296' preserveAspectRatio='xMinYMin slice'><path d='M263,681c0.7,0,18,39.7,52,119
+c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
+c340,-704.7,510.7,-1060.3,512,-1067
+l0 -0
+c4.7,-7.3,11,-11,19,-11
+H40000v40H1012.3
+s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
+c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
+s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
+c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
+M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2561em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>应该不难看出，整个公式中，数字差值问题是会影响到计算结果的，在每一组方程计算中，可能都会出现某一特征值过大于其他特征值。我们或许可以这样认为：要对玻璃进行分类，样本数据中玻璃所有构成元素以及折射率应该都是<strong>等权重</strong>的，不应该出现某一个值过大于其他值，从而照成计算的影响。</p>
+<p>那么在处理这样不同取值范围的特征值时，可以采用数值归一化，将取值范围处理为0到1或者-1到1的区间。</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>归一化值</mtext><mo>=</mo><mfrac><mrow><mtext>输入值</mtext><mo>−</mo><mtext>数据集中最小值</mtext></mrow><mrow><mtext>数据集中最大值</mtext><mo>−</mo><mtext>数据集中最小值</mtext></mrow></mfrac></mrow><annotation encoding="application/x-tex">归一化值 = \frac{输入值-数据集中最小值}{数据集中最大值-数据集中最小值}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">归一化值</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.1297em;vertical-align:-0.7693em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">数据集中最大值</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord cjk_fallback">数据集中最小值</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">输入值</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord cjk_fallback">数据集中最小值</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">norm4knn</span>(<span class="params">dataset</span>):</span><br><span class="line">    min_values = dataset.<span class="built_in">min</span>(<span class="number">0</span>)</span><br><span class="line">    max_values = dataset.<span class="built_in">max</span>(<span class="number">0</span>)</span><br><span class="line">    ranges = max_values - min_values</span><br><span class="line">    norm_dataset = np.zeros(np.shape(dataset))</span><br><span class="line">    m = dataset.shape[<span class="number">0</span>]</span><br><span class="line">    norm_dataset = dataset - np.tile(min_values, (m, <span class="number">1</span>))</span><br><span class="line">    norm_dataset = norm_dataset/np.tile(ranges, (m, <span class="number">1</span>))</span><br><span class="line">    <span class="keyword">return</span> norm_dataset, ranges, min_values</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试norm4knn</span></span><br><span class="line">norm_dataset, ranges, min_values = norm4knn(sample_mat)</span><br><span class="line"><span class="built_in">print</span>(norm_dataset)</span><br><span class="line"><span class="built_in">print</span>(ranges)</span><br><span class="line"><span class="built_in">print</span>(min_values)</span><br></pre></td></tr></table></figure>
-
-<h3 id="对算法进行验证"><a href="#对算法进行验证" class="headerlink" title="对算法进行验证"></a>对算法进行验证</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">testing4knn</span>():</span><br><span class="line">    ho_ratio = <span class="number">0.005</span></span><br><span class="line">    sample_mat,class_label_vector = file2matrix(<span class="string">&quot;glass.txt&quot;</span>)</span><br><span class="line">    norm_dataset, ranges, min_values = norm4knn(sample_mat)</span><br><span class="line">    m = norm_dataset.shape[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;m=&#x27;</span>,m)</span><br><span class="line">    num_test_vecs = <span class="built_in">int</span>(m * ho_ratio)</span><br><span class="line">    <span class="built_in">print</span>(num_test_vecs)</span><br><span class="line">    error_count = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(num_test_vecs):</span><br><span class="line">        classifier_result = classify(norm_dataset[i, :], norm_dataset[num_test_vecs:m, :], class_label_vector[num_test_vecs : m], <span class="number">5</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;分类器分类 : %d, 实际分类 : %d&quot;</span> % (classifier_result, class_label_vector[i]))</span><br><span class="line">        <span class="keyword">if</span> (classifier_result != class_label_vector[i]):</span><br><span class="line">            error_count += <span class="number">1.0</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;分类器分类错误率 : %f&quot;</span> % (error_count / <span class="built_in">float</span>(num_test_vecs)))</span><br><span class="line"></span><br><span class="line">testing4knn()</span><br></pre></td></tr></table></figure>
-
-<h3 id="编写分类预测程序"><a href="#编写分类预测程序" class="headerlink" title="编写分类预测程序"></a>编写分类预测程序</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">classifyGlass</span>():</span><br><span class="line">    resultList = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line">    inp_ri = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;折射率:&quot;</span>))</span><br><span class="line">    inp_na = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;Na:&quot;</span>))</span><br><span class="line">    inp_mg = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;Mg:&quot;</span>))</span><br><span class="line">    inp_Al = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;Al:&quot;</span>))</span><br><span class="line">    inp_Si = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;Si:&quot;</span>))</span><br><span class="line">    inp_K = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;K:&quot;</span>))</span><br><span class="line">    inp_Ca = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;Ca:&quot;</span>))</span><br><span class="line">    inp_Ba = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;Ba:&quot;</span>))</span><br><span class="line">    inp_Fe = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;Fe:&quot;</span>))</span><br><span class="line">    datingDataMat, datingLabels = file2matrix(<span class="string">&#x27;glass.txt&#x27;</span>)</span><br><span class="line">    normMat, ranges, minVals = norm4knn(datingDataMat)</span><br><span class="line">    inArr = np.array([inp_ri, inp_na, inp_mg, inp_Al, inp_Si, inp_K, inp_Ca, inp_Ba, inp_Fe])</span><br><span class="line">    classifierResult = classify((inArr - minVals)/ranges, normMat, datingLabels, <span class="number">3</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;该玻璃分类可能为:&quot;</span>, resultList[classifierResult - <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">classifyGlass()</span><br></pre></td></tr></table></figure>
-
+<h3 id="对算法进行验证">对算法进行验证</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">testing4knn</span>():</span><br><span class="line">    ho_ratio = <span class="number">0.005</span></span><br><span class="line">    sample_mat,class_label_vector = file2matrix(<span class="string">&quot;glass.txt&quot;</span>)</span><br><span class="line">    norm_dataset, ranges, min_values = norm4knn(sample_mat)</span><br><span class="line">    m = norm_dataset.shape[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;m=&#x27;</span>,m)</span><br><span class="line">    num_test_vecs = <span class="built_in">int</span>(m * ho_ratio)</span><br><span class="line">    <span class="built_in">print</span>(num_test_vecs)</span><br><span class="line">    error_count = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(num_test_vecs):</span><br><span class="line">        classifier_result = classify(norm_dataset[i, :], norm_dataset[num_test_vecs:m, :], class_label_vector[num_test_vecs : m], <span class="number">5</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;分类器分类 : %d, 实际分类 : %d&quot;</span> % (classifier_result, class_label_vector[i]))</span><br><span class="line">        <span class="keyword">if</span> (classifier_result != class_label_vector[i]):</span><br><span class="line">            error_count += <span class="number">1.0</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;分类器分类错误率 : %f&quot;</span> % (error_count / <span class="built_in">float</span>(num_test_vecs)))</span><br><span class="line"></span><br><span class="line">testing4knn()</span><br></pre></td></tr></table></figure>
+<h3 id="编写分类预测程序">编写分类预测程序</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">classifyGlass</span>():</span><br><span class="line">    resultList = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line">    inp_ri = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;折射率:&quot;</span>))</span><br><span class="line">    inp_na = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;Na:&quot;</span>))</span><br><span class="line">    inp_mg = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;Mg:&quot;</span>))</span><br><span class="line">    inp_Al = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;Al:&quot;</span>))</span><br><span class="line">    inp_Si = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;Si:&quot;</span>))</span><br><span class="line">    inp_K = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;K:&quot;</span>))</span><br><span class="line">    inp_Ca = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;Ca:&quot;</span>))</span><br><span class="line">    inp_Ba = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;Ba:&quot;</span>))</span><br><span class="line">    inp_Fe = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;Fe:&quot;</span>))</span><br><span class="line">    datingDataMat, datingLabels = file2matrix(<span class="string">&#x27;glass.txt&#x27;</span>)</span><br><span class="line">    normMat, ranges, minVals = norm4knn(datingDataMat)</span><br><span class="line">    inArr = np.array([inp_ri, inp_na, inp_mg, inp_Al, inp_Si, inp_K, inp_Ca, inp_Ba, inp_Fe])</span><br><span class="line">    classifierResult = classify((inArr - minVals)/ranges, normMat, datingLabels, <span class="number">3</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;该玻璃分类可能为:&quot;</span>, resultList[classifierResult - <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">classifyGlass()</span><br></pre></td></tr></table></figure>
 <figure class="highlight json"><table><tr><td class="code"><pre><span class="line">running &amp; result</span><br><span class="line"></span><br><span class="line">折射率<span class="punctuation">:</span><span class="number">1.52101</span></span><br><span class="line">Na<span class="punctuation">:</span><span class="number">13.64</span></span><br><span class="line">Mg<span class="punctuation">:</span><span class="number">4.49</span></span><br><span class="line">Al<span class="punctuation">:</span><span class="number">1.1</span></span><br><span class="line">Si<span class="punctuation">:</span><span class="number">71.78</span></span><br><span class="line">K<span class="punctuation">:</span><span class="number">0.06</span></span><br><span class="line">Ca<span class="punctuation">:</span><span class="number">8.75</span></span><br><span class="line">Ba<span class="punctuation">:</span><span class="number">0</span></span><br><span class="line">Fe<span class="punctuation">:</span><span class="number">0</span></span><br><span class="line">该玻璃分类可能为<span class="punctuation">:</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:kinomu@sina.com">Aspirin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2018/09/04/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E5%AE%9E%E8%B7%B5%EF%BC%9AGlass%20Classification%20-%20Kaggle%20Datasets/">http://example.com/2018/09/04/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E5%AE%9E%E8%B7%B5%EF%BC%9AGlass%20Classification%20-%20Kaggle%20Datasets/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Cruising</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Algorithm/">Algorithm</a></div><div class="post_share"><div class="social-share" data-image="https://s1.ax1x.com/2022/04/14/LQj7QA.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechart_460_530.png" target="_blank"><img class="post-qr-code-img" src="/img/wechart_460_530.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay_460_530.png" target="_blank"><img class="post-qr-code-img" src="/img/alipay_460_530.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2018/09/06/Neo4j%20-%20Cypher%20Query%20Language%20-%20%E6%8C%87%E5%BC%95/"><img class="prev-cover" src="https://s1.ax1x.com/2022/04/14/LlCVFx.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Neo4j - Cypher Query Language - 入门指引</div></div></a></div><div class="next-post pull-right"><a href="/2018/09/04/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%20Knowledge%20Graph/"><img class="next-cover" src="https://s1.ax1x.com/2022/04/14/LlCVFx.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">知识图谱 Knowledge Graph</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#k-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E6%A6%82%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">k - 近邻算法概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E6%96%87%E4%BB%B6%E4%B8%AD%E8%A7%A3%E6%9E%90%E6%95%B0%E6%8D%AE"><span class="toc-number">3.</span> <span class="toc-text">从文件中解析数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E6%A0%B7%E6%9C%AC%E6%95%B0%E6%8D%AE%E9%9B%86%E8%BD%AC%E6%8D%A2%E4%B8%BANumPy%E7%9A%84%E8%A7%A3%E6%9E%90%E6%96%B9%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text">将样本数据集转换为NumPy的解析方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Matplotlib%E5%88%9B%E5%BB%BA%E6%95%A3%E7%82%B9%E5%9B%BE"><span class="toc-number">3.2.</span> <span class="toc-text">使用Matplotlib创建散点图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#KNN%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.3.</span> <span class="toc-text">KNN算法的实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96%E7%89%B9%E5%BE%81%E5%80%BC"><span class="toc-number">3.4.</span> <span class="toc-text">归一化特征值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E7%AE%97%E6%B3%95%E8%BF%9B%E8%A1%8C%E9%AA%8C%E8%AF%81"><span class="toc-number">3.5.</span> <span class="toc-text">对算法进行验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E5%88%86%E7%B1%BB%E9%A2%84%E6%B5%8B%E7%A8%8B%E5%BA%8F"><span class="toc-number">3.6.</span> <span class="toc-text">编写分类预测程序</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://s1.ax1x.com/2022/04/14/LQj7QA.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Aspirin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
 
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:kinomu@sina.com">Aspirin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2018/09/04/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E5%AE%9E%E8%B7%B5%EF%BC%9AGlass%20Classification%20-%20Kaggle%20Datasets/">http://example.com/2018/09/04/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E5%AE%9E%E8%B7%B5%EF%BC%9AGlass%20Classification%20-%20Kaggle%20Datasets/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Cruising</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Algorithm/">Algorithm</a></div><div class="post_share"><div class="social-share" data-image="https://s1.ax1x.com/2022/04/14/LQj7QA.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechart_460_530.png" target="_blank"><img class="post-qr-code-img" src="/img/wechart_460_530.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay_460_530.png" target="_blank"><img class="post-qr-code-img" src="/img/alipay_460_530.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2018/09/06/Neo4j%20-%20Cypher%20Query%20Language%20-%20%E6%8C%87%E5%BC%95/"><img class="prev-cover" src="https://s1.ax1x.com/2022/04/14/LlCVFx.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Neo4j - Cypher Query Language - 入门指引</div></div></a></div><div class="next-post pull-right"><a href="/2018/09/04/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%20Knowledge%20Graph/"><img class="next-cover" src="https://s1.ax1x.com/2022/04/14/LlCVFx.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">知识图谱 Knowledge Graph</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#k-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E6%A6%82%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">k - 近邻算法概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E6%96%87%E4%BB%B6%E4%B8%AD%E8%A7%A3%E6%9E%90%E6%95%B0%E6%8D%AE"><span class="toc-number">3.</span> <span class="toc-text">从文件中解析数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E6%A0%B7%E6%9C%AC%E6%95%B0%E6%8D%AE%E9%9B%86%E8%BD%AC%E6%8D%A2%E4%B8%BANumPy%E7%9A%84%E8%A7%A3%E6%9E%90%E6%96%B9%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text">将样本数据集转换为NumPy的解析方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Matplotlib%E5%88%9B%E5%BB%BA%E6%95%A3%E7%82%B9%E5%9B%BE"><span class="toc-number">3.2.</span> <span class="toc-text">使用Matplotlib创建散点图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#KNN%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.3.</span> <span class="toc-text">KNN算法的实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96%E7%89%B9%E5%BE%81%E5%80%BC"><span class="toc-number">3.4.</span> <span class="toc-text">归一化特征值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E7%AE%97%E6%B3%95%E8%BF%9B%E8%A1%8C%E9%AA%8C%E8%AF%81"><span class="toc-number">3.5.</span> <span class="toc-text">对算法进行验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E5%88%86%E7%B1%BB%E9%A2%84%E6%B5%8B%E7%A8%8B%E5%BA%8F"><span class="toc-number">3.6.</span> <span class="toc-text">编写分类预测程序</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://s1.ax1x.com/2022/04/14/LQj7QA.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Aspirin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

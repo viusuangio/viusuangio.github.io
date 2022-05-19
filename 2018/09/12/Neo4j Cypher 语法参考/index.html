@@ -164,235 +164,273 @@
     })(window)</script><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Cruising" type="application/atom+xml">
 </head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 站点链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-info-circle"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s1.ax1x.com/2022/04/14/LlCVFx.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Cruising</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 站点链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-info-circle"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Neo4j Cypher 语法参考</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-09-11T16:00:00.000Z" title="发表于 2018-09-12 00:00:00">2018-09-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2018-09-12T06:33:32.304Z" title="更新于 2018-09-12 14:33:32">2018-09-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Cypher/">Cypher</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Neo4j Cypher 语法参考"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>本文以 <strong>Neo4j</strong> 官网上的 <a target="_blank" rel="noopener" href="https://neo4j.com/docs/cypher-refcard/current/"><strong>Neo4j Cypher Refcard 3.4</strong></a>为基准，通篇翻译以作学习。即便版本发生改变 ，但其语法以及其作用不会发生太大的变化，放心食用，个人建议原文口味更佳。</p>
 <span id="more"></span>
-
-<h2 id="Read-Query-Structure"><a href="#Read-Query-Structure" class="headerlink" title="Read Query Structure"></a>Read Query Structure</h2><table>
+<h2 id="Read-Query-Structure">Read Query Structure</h2>
+<table>
 <thead>
 <tr>
-<th align="left">Read Query Structure</th>
+<th style="text-align:left">Read Query Structure</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">[MATCH WHERE]</td>
+<tbody>
+<tr>
+<td style="text-align:left">[MATCH WHERE]</td>
 </tr>
 <tr>
-<td align="left">[OPTIONAL MATCH WHERE]</td>
+<td style="text-align:left">[OPTIONAL MATCH WHERE]</td>
 </tr>
 <tr>
-<td align="left">[WITH [ORDER BY] [SKIP] [LIMIT]]</td>
+<td style="text-align:left">[WITH [ORDER BY] [SKIP] [LIMIT]]</td>
 </tr>
 <tr>
-<td align="left">RETURN [ORDER BY] [SKIP] [LIMIT]</td>
+<td style="text-align:left">RETURN [ORDER BY] [SKIP] [LIMIT]</td>
 </tr>
-</tbody></table>
-<h2 id="MATCH"><a href="#MATCH" class="headerlink" title="MATCH"></a>MATCH</h2><table>
+</tbody>
+</table>
+<h2 id="MATCH">MATCH</h2>
+<table>
 <thead>
 <tr>
-<th align="left">MATCH</th>
+<th style="text-align:left">MATCH</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">MATCH (n:Person)-[:KNOWS]-&gt;(m:Person) WHERE n.name &#x3D; ‘Alice’  [^1]</td>
+<tbody>
+<tr>
+<td style="text-align:left">MATCH (n:Person)-[:KNOWS]-&gt;(m:Person) WHERE <a target="_blank" rel="noopener" href="http://n.name">n.name</a> = ‘Alice’  [^1]</td>
 </tr>
 <tr>
-<td align="left">MATCH (n)–&gt;(m) [^2]</td>
+<td style="text-align:left">MATCH (n)–&gt;(m) [^2]</td>
 </tr>
 <tr>
-<td align="left">MATCH (n {name:’Alice’})–&gt;(m) [^3]</td>
+<td style="text-align:left">MATCH (n {name:‘Alice’})–&gt;(m) [^3]</td>
 </tr>
 <tr>
-<td align="left">MATCH p &#x3D; (n)–&gt;(m) [^4]</td>
+<td style="text-align:left">MATCH p = (n)–&gt;(m) [^4]</td>
 </tr>
 <tr>
-<td align="left">OPTIONAL MATCH (n)-[r]-&gt;(m) [^5]</td>
+<td style="text-align:left">OPTIONAL MATCH (n)-[r]-&gt;(m) [^5]</td>
 </tr>
-</tbody></table>
-<p>[^1]: 节点模式（Node patterns）可包含标签以及属性<br>[^2]: MATCH中可以使用所有的模式<br>[^3]: 具有节点属性的模式<br>[^4]: 将路径赋值与p<br>[^5]: 可选模式：空值将用于丢失的部分</p>
-<h2 id="WHERE"><a href="#WHERE" class="headerlink" title="WHERE"></a>WHERE</h2><table>
+</tbody>
+</table>
+<p>[^1]: 节点模式（Node patterns）可包含标签以及属性<br>
+[^2]: MATCH中可以使用所有的模式<br>
+[^3]: 具有节点属性的模式<br>
+[^4]: 将路径赋值与p<br>
+[^5]: 可选模式：空值将用于丢失的部分</p>
+<h2 id="WHERE">WHERE</h2>
+<table>
 <thead>
 <tr>
-<th align="left">WHERE</th>
+<th style="text-align:left">WHERE</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">WHERE n.property &lt;&gt; $value [^6]</td>
+<tbody>
+<tr>
+<td style="text-align:left">WHERE n.property &lt;&gt; $value [^6]</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>[^ 6]: WHERE始终是MATCH，OPTIONAL MATCH，WITH或START子句的一部分。 将它放在查询中的不同子句之后将改变它的作用</p>
-<h2 id="RETURN"><a href="#RETURN" class="headerlink" title="RETURN"></a>RETURN</h2><table>
+<h2 id="RETURN">RETURN</h2>
+<table>
 <thead>
 <tr>
-<th align="left">RETURN</th>
+<th style="text-align:left">RETURN</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">RETURN * [^7]</td>
+<tbody>
+<tr>
+<td style="text-align:left">RETURN * <a href="%E8%BF%94%E5%9B%9E%E6%89%80%E6%9C%89%E5%8F%98%E9%87%8F%E7%9A%84%E5%80%BC">^7</a></td>
 </tr>
 <tr>
-<td align="left">RETURN n AS columnName [^8]</td>
+<td style="text-align:left">RETURN n AS columnName <a href="%E5%AF%B9%E7%BB%93%E6%9E%9C%E5%88%97%E5%90%8D%E7%A7%B0%E4%BD%BF%E7%94%A8%E5%88%AB%E5%90%8D">^8</a></td>
 </tr>
 <tr>
-<td align="left">RETURN DISTINCT n [^9]</td>
+<td style="text-align:left">RETURN DISTINCT n <a href="%E8%BF%94%E5%9B%9E%E5%94%AF%E4%B8%80%E7%9A%84%E8%A1%8C">^9</a></td>
 </tr>
 <tr>
-<td align="left">ORDER BY n.property [^10]</td>
+<td style="text-align:left">ORDER BY n.property <a href="%E5%AF%B9%E7%BB%93%E6%9E%9C%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F">^10</a></td>
 </tr>
 <tr>
-<td align="left">ORDER BY n.property DESC [^11]</td>
+<td style="text-align:left">ORDER BY n.property DESC <a href="%E6%8C%89%E9%99%8D%E5%BA%8F%E5%AF%B9%E7%BB%93%E6%9E%9C%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F">^11</a></td>
 </tr>
 <tr>
-<td align="left">SKIP $skipNumber [^12]</td>
+<td style="text-align:left">SKIP $skipNumber <a href="%E8%B7%B3%E8%BF%87%E6%8C%87%E5%AE%9A%E6%95%B0%E9%87%8F%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%93%E6%9E%9C">^12</a></td>
 </tr>
 <tr>
-<td align="left">LIMIT $limitNumber [^13]</td>
+<td style="text-align:left">LIMIT $limitNumber <a href="%E9%99%90%E5%88%B6%E7%BB%93%E6%9E%9C%E7%9A%84%E6%95%B0%E9%87%8F">^13</a></td>
 </tr>
 <tr>
-<td align="left">SKIP $skipNumber LIMIT $limitNumber [^14]</td>
+<td style="text-align:left">SKIP $skipNumber LIMIT $limitNumber <a href="%E8%B7%B3%E8%BF%87%E6%8C%87%E5%AE%9A%E6%95%B0%E9%87%8F%E7%9A%84%E7%BB%93%E6%9E%9C%E5%B9%B6%E9%99%90%E5%88%B6%E7%BB%93%E6%9E%9C%E6%95%B0%E9%87%8F">^14</a></td>
 </tr>
 <tr>
-<td align="left">RETURN count(*) [^15]</td>
+<td style="text-align:left">RETURN count(*) [^15]</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>[^15]: 返回的总数（count - 聚合函数）</p>
-<h2 id="WITH"><a href="#WITH" class="headerlink" title="WITH"></a>WITH</h2><table>
+<h2 id="WITH">WITH</h2>
+<table>
 <thead>
 <tr>
-<th align="left">WITH</th>
+<th style="text-align:left">WITH</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">MATCH (user)-[:FRIEND]-(friend)<br/>WHERE user.name &#x3D; $name</td>
+<tbody>
+<tr>
+<td style="text-align:left">MATCH (user)-[:FRIEND]-(friend)<br/>WHERE <a target="_blank" rel="noopener" href="http://user.name">user.name</a> = $name</td>
 </tr>
 <tr>
-<td align="left">WITH user, count(friend) AS friends</td>
+<td style="text-align:left">WITH user, count(friend) AS friends</td>
 </tr>
 <tr>
-<td align="left">WHERE friends &gt; 10</td>
+<td style="text-align:left">WHERE friends &gt; 10</td>
 </tr>
 <tr>
-<td align="left">RETURN user [^16]</td>
+<td style="text-align:left">RETURN user [^16]</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>[^16]: WITH语法类似于RETURN。 它明确地分隔查询部分，允许声明要将哪些变量转移到下一个部分。</p>
-<h2 id="UNION"><a href="#UNION" class="headerlink" title="UNION"></a>UNION</h2><table>
+<h2 id="UNION">UNION</h2>
+<table>
 <thead>
 <tr>
-<th align="left">UNION</th>
+<th style="text-align:left">UNION</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">MATCH (a)-[:KNOWS]-&gt;(b)<br/>RETURN b.name</td>
+<tbody>
+<tr>
+<td style="text-align:left">MATCH (a)-[:KNOWS]-&gt;(b)<br/>RETURN <a target="_blank" rel="noopener" href="http://b.name">b.name</a></td>
 </tr>
 <tr>
-<td align="left">UNION</td>
+<td style="text-align:left">UNION</td>
 </tr>
 <tr>
-<td align="left">MATCH (a)-[:LOVES]-&gt;(b)</td>
+<td style="text-align:left">MATCH (a)-[:LOVES]-&gt;(b)</td>
 </tr>
 <tr>
-<td align="left">RETURN b.name [^17]</td>
+<td style="text-align:left">RETURN <a target="_blank" rel="noopener" href="http://b.name">b.name</a> <a href="%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E5%87%BA%E7%9A%84%E4%B8%8D%E5%90%8C%E7%BB%93%E6%9E%9C%EF%BC%8C%E7%BB%93%E6%9E%9C%E5%88%97%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%90%8D%E7%A7%B0%E5%BF%85%E9%A1%BB%E5%8C%B9%E9%85%8D">^17</a></td>
 </tr>
-</tbody></table>
-<h2 id="Write-Only-Query-Structure"><a href="#Write-Only-Query-Structure" class="headerlink" title="Write-Only Query Structure"></a>Write-Only Query Structure</h2><table>
+</tbody>
+</table>
+<h2 id="Write-Only-Query-Structure">Write-Only Query Structure</h2>
+<table>
 <thead>
 <tr>
-<th align="left">Write-Only Query Structure</th>
+<th style="text-align:left">Write-Only Query Structure</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">(CREATE [UNIQUE] | MERGE) *</td>
+<tbody>
+<tr>
+<td style="text-align:left">(CREATE [UNIQUE] | MERGE) *</td>
 </tr>
 <tr>
-<td align="left">[SET | DELETE | REMOVE | FOREACH] *</td>
+<td style="text-align:left">[SET | DELETE | REMOVE | FOREACH] *</td>
 </tr>
 <tr>
-<td align="left">[RETURN [ORDER BY] [SKIP] [LIMIT]]</td>
+<td style="text-align:left">[RETURN [ORDER BY] [SKIP] [LIMIT]]</td>
 </tr>
-</tbody></table>
-<h2 id="Read-Write-Query-Structure"><a href="#Read-Write-Query-Structure" class="headerlink" title="Read-Write Query Structure"></a>Read-Write Query Structure</h2><table>
+</tbody>
+</table>
+<h2 id="Read-Write-Query-Structure">Read-Write Query Structure</h2>
+<table>
 <thead>
 <tr>
-<th align="left">Read-Write Query Structure</th>
+<th style="text-align:left">Read-Write Query Structure</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">[MATCH WHERE]</td>
+<tbody>
+<tr>
+<td style="text-align:left">[MATCH WHERE]</td>
 </tr>
 <tr>
-<td align="left">[OPTIONAL MATCH WHERE]</td>
+<td style="text-align:left">[OPTIONAL MATCH WHERE]</td>
 </tr>
 <tr>
-<td align="left">[WITH [ORDER BY] [SKIP] [LIMIT]]</td>
+<td style="text-align:left">[WITH [ORDER BY] [SKIP] [LIMIT]]</td>
 </tr>
 <tr>
-<td align="left">(CREATE [UNIQUE] | MERGE) *</td>
+<td style="text-align:left">(CREATE [UNIQUE] | MERGE) *</td>
 </tr>
 <tr>
-<td align="left">[SET | DELETE | REMOVE | FOREACH] *</td>
+<td style="text-align:left">[SET | DELETE | REMOVE | FOREACH] *</td>
 </tr>
 <tr>
-<td align="left">[RETURN [ORDER BY] [SKIP] [LIMIT]]</td>
+<td style="text-align:left">[RETURN [ORDER BY] [SKIP] [LIMIT]]</td>
 </tr>
-</tbody></table>
-<h2 id="CREATE"><a href="#CREATE" class="headerlink" title="CREATE"></a>CREATE</h2><table>
+</tbody>
+</table>
+<h2 id="CREATE">CREATE</h2>
+<table>
 <thead>
 <tr>
-<th align="left">CREATE</th>
+<th style="text-align:left">CREATE</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">CREATE (n {name: $value}) [^18]</td>
+<tbody>
+<tr>
+<td style="text-align:left">CREATE (n {name: $value}) <a href="%E5%88%9B%E5%BB%BA%E5%85%B7%E6%9C%89%E6%8C%87%E5%AE%9A%E5%B1%9E%E6%80%A7%E7%9A%84%E8%8A%82%E7%82%B9">^18</a></td>
 </tr>
 <tr>
-<td align="left">CREATE (n $map) [^18]</td>
+<td style="text-align:left">CREATE (n $map) <a href="%E5%88%9B%E5%BB%BA%E5%85%B7%E6%9C%89%E6%8C%87%E5%AE%9A%E5%B1%9E%E6%80%A7%E7%9A%84%E8%8A%82%E7%82%B9">^18</a></td>
 </tr>
 <tr>
-<td align="left">UNWIND $listOfMaps AS properties<br/>CREATE (n) SET n &#x3D; properties [^18]</td>
+<td style="text-align:left">UNWIND $listOfMaps AS properties<br/>CREATE (n) SET n = properties <a href="%E5%88%9B%E5%BB%BA%E5%85%B7%E6%9C%89%E6%8C%87%E5%AE%9A%E5%B1%9E%E6%80%A7%E7%9A%84%E8%8A%82%E7%82%B9">^18</a></td>
 </tr>
 <tr>
-<td align="left">CREATE (n)-[r:KNOWS]-&gt;(m) [^19]</td>
+<td style="text-align:left">CREATE (n)-[r:KNOWS]-&gt;(m) [^19]</td>
 </tr>
 <tr>
-<td align="left">CREATE (n)-[:LOVES {since: $value}]-&gt;(m) [^20]</td>
+<td style="text-align:left">CREATE (n)-[:LOVES {since: $value}]-&gt;(m) [^20]</td>
 </tr>
-</tbody></table>
-<p>[^19]: 创建具有给定类型和方向的关系; 将变量绑定到它。<br>[^20]: 使用给定的类型，方向和属性创建关系。</p>
-<h2 id="SET"><a href="#SET" class="headerlink" title="SET"></a>SET</h2><table>
+</tbody>
+</table>
+<p>[^19]: 创建具有给定类型和方向的关系; 将变量绑定到它。<br>
+[^20]: 使用给定的类型，方向和属性创建关系。</p>
+<h2 id="SET">SET</h2>
+<table>
 <thead>
 <tr>
 <th>CREATE</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>SET n.property1 &#x3D; $value1,<br/>n.property2 &#x3D; $value2 [^21]</td>
+<tbody>
+<tr>
+<td>SET n.property1 = $value1,<br/>n.property2 = $value2 <a href="%E6%9B%B4%E6%96%B0%E6%88%96%E5%88%9B%E5%BB%BA%E5%B1%9E%E6%80%A7">^21</a></td>
 </tr>
 <tr>
-<td>SET n &#x3D; $map [^22]</td>
+<td>SET n = $map [^22]</td>
 </tr>
 <tr>
-<td>SET n +&#x3D; $map [^23]</td>
+<td>SET n += $map [^23]</td>
 </tr>
 <tr>
 <td>SET n:Person [^24]</td>
 </tr>
-</tbody></table>
-<p>[^22]: 设置所有属性。 这将删除任何现有属性<br>[^23]: 添加和更新属性，同时保留现有属性<br>[^24]: 向节点添加标签Person</p>
-<h2 id="MERGE"><a href="#MERGE" class="headerlink" title="MERGE"></a>MERGE</h2><table>
+</tbody>
+</table>
+<p>[^22]: 设置所有属性。 这将删除任何现有属性<br>
+[^23]: 添加和更新属性，同时保留现有属性<br>
+[^24]: 向节点添加标签Person</p>
+<h2 id="MERGE">MERGE</h2>
+<table>
 <thead>
 <tr>
 <th>MERGE</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>MERGE (n:Person {name: $value})<br/>ON CREATE SET n.created &#x3D; timestamp()</td>
+<tbody>
+<tr>
+<td>MERGE (n:Person {name: $value})<br/>ON CREATE SET n.created = timestamp()</td>
 </tr>
 <tr>
 <td>ON MATCH SET</td>
 </tr>
 <tr>
-<td>n.counter &#x3D; coalesce(n.counter, 0) + 1,</td>
+<td>n.counter = coalesce(n.counter, 0) + 1,</td>
 </tr>
 <tr>
-<td>n.accessTime &#x3D; timestamp() [^25]</td>
+<td>n.accessTime = timestamp() [^25]</td>
 </tr>
 <tr>
 <td>MATCH (a:Person {name: $value1})<br/>MERGE</td>
@@ -400,57 +438,70 @@
 <tr>
 <td>(a)-[r:KNOWS]-&gt;(b:Person {name: $value3}) [^26]</td>
 </tr>
-</tbody></table>
-<p>[^25]: 匹配模式或创建模式（如果不存在）。 使用ON CREATE和ON MATCH进行条件更新。<br>[^26]: MERGE查找或创建附加到节点的子图。</p>
-<h2 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h2><table>
+</tbody>
+</table>
+<p>[^25]: 匹配模式或创建模式（如果不存在）。 使用ON CREATE和ON MATCH进行条件更新。<br>
+[^26]: MERGE查找或创建附加到节点的子图。</p>
+<h2 id="DELETE">DELETE</h2>
+<table>
 <thead>
 <tr>
 <th>DELETE</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>DELETE n, r [^27]</td>
+<tbody>
+<tr>
+<td>DELETE n, r <a href="%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%E5%92%8C%E5%85%B3%E7%B3%BB%E3%80%82">^27</a></td>
 </tr>
 <tr>
-<td>DETACH DELETE n [^28]</td>
+<td>DETACH DELETE n <a href="%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%E5%8F%8A%E5%85%B6%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%89%80%E6%9C%89%E5%85%B3%E7%B3%BB%E3%80%82">^28</a></td>
 </tr>
 <tr>
-<td>MATCH (n)<br/>DETACH DELETE n [^29]</td>
+<td>MATCH (n)<br/>DETACH DELETE n <a href="%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%88%A0%E9%99%A4%E6%89%80%E6%9C%89%E8%8A%82%E7%82%B9%E5%92%8C%E5%85%B3%E7%B3%BB%E3%80%82">^29</a></td>
 </tr>
-</tbody></table>
-<h2 id="REMOVE"><a href="#REMOVE" class="headerlink" title="REMOVE"></a>REMOVE</h2><table>
+</tbody>
+</table>
+<h2 id="REMOVE">REMOVE</h2>
+<table>
 <thead>
 <tr>
 <th>REMOVE</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>REMOVE n:Person [^30]</td>
+<tbody>
+<tr>
+<td>REMOVE n:Person <a href="%E4%BB%8En%E4%B8%AD%E5%88%A0%E9%99%A4%E6%A0%87%E7%AD%BE%E3%80%82">^30</a></td>
 </tr>
 <tr>
-<td>REMOVE n.property [^31]</td>
+<td>REMOVE n.property <a href="%E5%88%A0%E9%99%A4%E5%B1%9E%E6%80%A7%E3%80%82">^31</a></td>
 </tr>
-</tbody></table>
-<h2 id="FOREACH"><a href="#FOREACH" class="headerlink" title="FOREACH"></a>FOREACH</h2><table>
+</tbody>
+</table>
+<h2 id="FOREACH">FOREACH</h2>
+<table>
 <thead>
 <tr>
 <th>FOREACH</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>FOREACH (r IN relationships(path)| <br/>SET r.marked &#x3D; true) [^32]</td>
+<tbody>
+<tr>
+<td>FOREACH (r IN relationships(path)| <br/>SET r.marked = true) <a href="%E5%AF%B9%E8%B7%AF%E5%BE%84%E4%B8%AD%E7%9A%84%E6%AF%8F%E4%B8%AA%E5%85%B3%E7%B3%BB%E6%89%A7%E8%A1%8C%E5%8F%98%E5%BC%82%E6%93%8D%E4%BD%9C%E3%80%82">^32</a></td>
 </tr>
 <tr>
-<td>FOREACH (value IN coll | <br/>CREATE (:Person {name: value})) [^33]</td>
+<td>FOREACH (value IN coll | <br/>CREATE (:Person {name: value})) <a href="%E5%AF%B9%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%AF%8F%E4%B8%AA%E5%85%83%E7%B4%A0%E6%89%A7%E8%A1%8C%E5%8F%98%E5%BC%82%E6%93%8D%E4%BD%9C%E3%80%82">^33</a></td>
 </tr>
-</tbody></table>
-<h2 id="CALL"><a href="#CALL" class="headerlink" title="CALL"></a>CALL</h2><table>
+</tbody>
+</table>
+<h2 id="CALL">CALL</h2>
+<table>
 <thead>
 <tr>
 <th>CALL</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>CALL db.labels() YIELD label [^34]</td>
 </tr>
 <tr>
@@ -459,30 +510,36 @@
 <tr>
 <td>CALL db.labels() YIELD label<br/>RETURN count(label) AS count [^36]</td>
 </tr>
-</tbody></table>
-<p>[^34]: 这显示了对内置过程db.labels的独立调用，以列出数据库中使用的所有标签。 请注意，在过程名称后面的括号中明确给出了必需的过程参数。<br>[^35]: 独立调用可以省略YIELD并且还通过语句参数隐式地提供参数，例如， 需要一个参数输入的独立调用可以通过传递参数map {input：’foo’}来运行。<br>[^36]: 在较大的查询中调用内置过程db.labels来计算数据库中使用的所有标签。 在较大的查询中调用总是需要传递参数并使用YIELD显式命名结果。</p>
-<h2 id="Import"><a href="#Import" class="headerlink" title="Import"></a>Import</h2><p><code>LOAD CSV FROM &#39;https://neo4j.com/docs/cypher-refcard/3.4/csv/artists.csv&#39; AS line CREATE (:Artist &#123;name: line[1], year: toInteger(line[2])&#125;)</code>	<a href="%E4%BB%8ECSV%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%B9%B6%E5%88%9B%E5%BB%BA%E8%8A%82%E7%82%B9%E3%80%82">^37</a></p>
-<p><code>LOAD CSV WITH HEADERS FROM &#39;https://neo4j.com/docs/cypher-refcard/3.4/csv/artists-with-headers.csv&#39; AS line CREATE (:Artist &#123;name: line.Name, year: toInteger(line.Year)&#125;)</code> <a href="%E5%8A%A0%E8%BD%BD%E5%8C%85%E5%90%AB%E6%A0%87%E9%A2%98%E7%9A%84CSV%E6%95%B0%E6%8D%AE%E3%80%82">^38</a></p>
-<p><code>USING PERIODIC COMMIT 500 LOAD CSV WITH HEADERS FROM &#39;https://neo4j.com/docs/cypher-refcard/3.4/csv/artists-with-headers.csv&#39; AS line CREATE (:Artist &#123;name: line.Name, year: toInteger(line.Year)&#125;)</code> <a href="%E5%AF%BC%E5%85%A5%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE%E6%97%B6%EF%BC%8C%E6%AF%8F500%E8%A1%8C%E6%8F%90%E4%BA%A4%E5%BD%93%E5%89%8D%E4%BA%8B%E5%8A%A1%E3%80%82">^39</a></p>
-<p><code>LOAD CSV FROM &#39;https://neo4j.com/docs/cypher-refcard/3.4/csv/artists-fieldterminator.csv&#39; AS line FIELDTERMINATOR &#39;;&#39; CREATE (:Artist &#123;name: line[1], year: toInteger(line[2])&#125;)</code> <a href="%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%97%E6%AE%B5%E7%BB%88%E6%AD%A2%E7%AC%A6%EF%BC%8C%E8%80%8C%E4%B8%8D%E6%98%AF%E9%BB%98%E8%AE%A4%E5%80%BC%EF%BC%8C%E5%8D%B3%E9%80%97%E5%8F%B7%EF%BC%88%E4%B8%8D%E5%8C%85%E5%90%AB%E7%A9%BA%E6%A0%BC%EF%BC%89%E3%80%82">^40</a></p>
-<h2 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h2><table>
+</tbody>
+</table>
+<p>[^34]: 这显示了对内置过程db.labels的独立调用，以列出数据库中使用的所有标签。 请注意，在过程名称后面的括号中明确给出了必需的过程参数。<br>
+[^35]: 独立调用可以省略YIELD并且还通过语句参数隐式地提供参数，例如， 需要一个参数输入的独立调用可以通过传递参数map {input：‘foo’}来运行。<br>
+[^36]: 在较大的查询中调用内置过程db.labels来计算数据库中使用的所有标签。 在较大的查询中调用总是需要传递参数并使用YIELD显式命名结果。</p>
+<h2 id="Import">Import</h2>
+<p><code>LOAD CSV FROM 'https://neo4j.com/docs/cypher-refcard/3.4/csv/artists.csv' AS line CREATE (:Artist &#123;name: line[1], year: toInteger(line[2])&#125;)</code>	<a href="%E4%BB%8ECSV%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%B9%B6%E5%88%9B%E5%BB%BA%E8%8A%82%E7%82%B9%E3%80%82">^37</a></p>
+<p><code>LOAD CSV WITH HEADERS FROM 'https://neo4j.com/docs/cypher-refcard/3.4/csv/artists-with-headers.csv' AS line CREATE (:Artist &#123;name: line.Name, year: toInteger(line.Year)&#125;)</code> <a href="%E5%8A%A0%E8%BD%BD%E5%8C%85%E5%90%AB%E6%A0%87%E9%A2%98%E7%9A%84CSV%E6%95%B0%E6%8D%AE%E3%80%82">^38</a></p>
+<p><code>USING PERIODIC COMMIT 500 LOAD CSV WITH HEADERS FROM 'https://neo4j.com/docs/cypher-refcard/3.4/csv/artists-with-headers.csv' AS line CREATE (:Artist &#123;name: line.Name, year: toInteger(line.Year)&#125;)</code> <a href="%E5%AF%BC%E5%85%A5%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE%E6%97%B6%EF%BC%8C%E6%AF%8F500%E8%A1%8C%E6%8F%90%E4%BA%A4%E5%BD%93%E5%89%8D%E4%BA%8B%E5%8A%A1%E3%80%82">^39</a></p>
+<p><code>LOAD CSV FROM 'https://neo4j.com/docs/cypher-refcard/3.4/csv/artists-fieldterminator.csv' AS line FIELDTERMINATOR ';' CREATE (:Artist &#123;name: line[1], year: toInteger(line[2])&#125;)</code> <a href="%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%97%E6%AE%B5%E7%BB%88%E6%AD%A2%E7%AC%A6%EF%BC%8C%E8%80%8C%E4%B8%8D%E6%98%AF%E9%BB%98%E8%AE%A4%E5%80%BC%EF%BC%8C%E5%8D%B3%E9%80%97%E5%8F%B7%EF%BC%88%E4%B8%8D%E5%8C%85%E5%90%AB%E7%A9%BA%E6%A0%BC%EF%BC%89%E3%80%82">^40</a></p>
+<h2 id="Operators">Operators</h2>
+<table>
 <thead>
 <tr>
 <th>–</th>
 <th>–</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>General</td>
 <td>DISTINCT, ., []</td>
 </tr>
 <tr>
 <td>Mathematical</td>
-<td>+，-，*，&#x2F;，%，^</td>
+<td>+，-，*，/，%，^</td>
 </tr>
 <tr>
 <td>Comparison</td>
-<td>&#x3D;, &lt;&gt;, &lt;, &gt;, &lt;&#x3D;, &gt;&#x3D;, IS NULL, IS NOT NULL</td>
+<td>=, &lt;&gt;, &lt;, &gt;, &lt;=, &gt;=, IS NULL, IS NOT NULL</td>
 </tr>
 <tr>
 <td>Boolean</td>
@@ -494,25 +551,28 @@
 </tr>
 <tr>
 <td>List</td>
-<td>+，IN，[x]，[x .. y]</td>
+<td>+，IN，[x]，[x … y]</td>
 </tr>
 <tr>
 <td>Regular Expression</td>
-<td>&#x3D;~</td>
+<td>=~</td>
 </tr>
 <tr>
 <td>String matching</td>
 <td>STARTS WITH, ENDS WITH，CONTAINS</td>
 </tr>
-</tbody></table>
-<h2 id="null"><a href="#null" class="headerlink" title="null"></a>null</h2><ul>
-<li>null用于表示缺失&#x2F;未定义的值。</li>
-<li>null不等于null。 不知道两个值并不意味着它们是相同的值。 所以表达式null &#x3D; null产生null而不是true。 要检查表达式是否为null，请使用IS NULL。</li>
+</tbody>
+</table>
+<h2 id="null">null</h2>
+<ul>
+<li>null用于表示缺失/未定义的值。</li>
+<li>null不等于null。 不知道两个值并不意味着它们是相同的值。 所以表达式null = null产生null而不是true。 要检查表达式是否为null，请使用IS NULL。</li>
 <li>如果任何参数为null，则算术表达式，比较和函数调用（coalesce除外）将返回null。</li>
 <li>尝试访问列表中缺少的元素或不存在的属性会产生null。</li>
 <li>在OPTIONAL MATCH子句中，空值将用于模式的缺失部分。</li>
 </ul>
-<h2 id="Patterns"><a href="#Patterns" class="headerlink" title="Patterns"></a>Patterns</h2><p><code>(n:Person)</code>：带有Person标签的节点。</p>
+<h2 id="Patterns">Patterns</h2>
+<p><code>(n:Person)</code>：带有Person标签的节点。</p>
 <p><code>(n:Person:Swedish)</code>：具有Person和Swedish标签的节点。</p>
 <p><code>(n:Person &#123;name: $value&#125;)</code>具有声明属性的节点。</p>
 <p><code>()-[r &#123;name: $value&#125;]-()</code>匹配与声明的属性的关系。</p>
@@ -528,21 +588,24 @@
 <p><code>shortestPath((n1:Person)-[*..6]-(n2:Person))</code>找到一条最短的路径。</p>
 <p><code>allShortestPaths((n1:Person)-[*..6]-&gt;(n2:Person))</code>找到所有最短的路径。</p>
 <p><code>size((n)--&gt;()--&gt;())</code>计算与模式匹配的路径。</p>
-<h2 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h2><p><code>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;] AS list</code>文字列表在方括号中声明。</p>
+<h2 id="Lists">Lists</h2>
+<p><code>['a', 'b', 'c'] AS list</code>文字列表在方括号中声明。</p>
 <p><code>size($list) AS len, $list[0] AS value</code>列表可以作为参数传递。</p>
 <p><code>range($firstNum, $lastNum, $step) AS list</code>range()创建一个数字列表（步骤是可选的），返回列表的其他函数是：labels()，nodes()，relationships()，filter()，extract()。</p>
 <p><code>MATCH p = (a)-[:KNOWS*]-&gt;() RETURN relationships(p) AS r</code> 可以使用命名路径和relationships()返回包含可变长度路径的关系列表。</p>
 <p><code>RETURN matchedNode.list[0] AS value, size(matchedNode.list) AS len</code>属性可以是字符串，数字或布尔值的列表。</p>
 <p><code>list[$idx] AS value, list[$startIdx..$endIdx] AS slice</code>可以使用方括号中的idx下标访问列表元素。 无效索引返回null。 可以从start_idx到end_idx的间隔检索切片，每个切片可以省略或为负。 超出范围的元素将被忽略。</p>
 <p><code>UNWIND $names AS name MATCH (n &#123;name: name&#125;) RETURN avg(n.age)</code>使用UNWIND，任何列表都可以转换回单个行。 该示例匹配名称列表中的所有名称。</p>
-<p><code>MATCH (a) RETURN [(a)--&gt;(b) WHERE b.name = &#39;Bob&#39; | b.age]</code>模式推导可用于从匹配中直接进行自定义投影到列表中。</p>
+<p><code>MATCH (a) RETURN [(a)--&gt;(b) WHERE b.name = 'Bob' | b.age]</code>模式推导可用于从匹配中直接进行自定义投影到列表中。</p>
 <p><code>MATCH (person) RETURN person &#123; .name, .age&#125;</code>可以从节点，关系和其他地图值容易地构建地图投影。</p>
-<h2 id="Maps"><a href="#Maps" class="headerlink" title="Maps"></a>Maps</h2><p><code>&#123;name: &#39;Alice&#39;, age: 38, address: &#123;city: &#39;London&#39;, residential: true&#125;&#125;</code>maps用花括号声明，就像属性贴图一样。 支持列表。</p>
-<p><code>WITH &#123;person: &#123;name: &#39;Anne&#39;, age: 25&#125;&#125; AS p RETURN p.person.name</code>访问嵌套映射的属性。</p>
+<h2 id="Maps">Maps</h2>
+<p><code>&#123;name: 'Alice', age: 38, address: &#123;city: 'London', residential: true&#125;&#125;</code>maps用花括号声明，就像属性贴图一样。 支持列表。</p>
+<p><code>WITH &#123;person: &#123;name: 'Anne', age: 25&#125;&#125; AS p RETURN p.person.name</code>访问嵌套映射的属性。</p>
 <p><code>MERGE (p:Person &#123;name: $map.name&#125;) ON CREATE SET p = $map</code>maps可以作为参数传递，并用作map或访问键。</p>
 <p><code>MATCH (matchedNode:Person) RETURN matchedNode</code>节点和关系将作为其数据的映射返回。</p>
 <p><code>map.name, map.age, map.children[0]</code>可以通过其键访问映射条目。 密钥无效会导致错误</p>
-<h2 id="Predicates"><a href="#Predicates" class="headerlink" title="Predicates"></a>Predicates</h2><p><code>n.property &lt;&gt; $value</code>使用比较运算符。</p>
+<h2 id="Predicates">Predicates</h2>
+<p><code>n.property &lt;&gt; $value</code>使用比较运算符。</p>
 <p><code>exists(n.property)</code>使用函数。</p>
 <p><code>n.number &gt;= 1 AND n.number &lt;= 10</code>使用布尔运算符组合谓词。</p>
 <p><code>1 &lt;= n.number &lt;= 10</code>使用链式运算符组合谓词。</p>
@@ -551,25 +614,29 @@
 <p><code>NOT exists(n.property) OR n.property = $value</code>属性不存在或谓词为真</p>
 <p><code>n.property = $value</code>不存在的属性返回null，它不等于任何东西。</p>
 <p><code>n[&quot;property&quot;] = $value</code>也可以使用动态计算的属性名称访问属性。</p>
-<p><code>n.property STARTS WITH &#39;Tim&#39; OR n.property ENDS WITH &#39;n&#39; OR n.property CONTAINS &#39;goodie&#39;</code>字符串匹配。</p>
-<p><code>n.property =~ &#39;Tim.*&#39;</code>字符串正则表达式匹配</p>
+<p><code>n.property STARTS WITH 'Tim' OR n.property ENDS WITH 'n' OR n.property CONTAINS 'goodie'</code>字符串匹配。</p>
+<p><code>n.property =~ 'Tim.*'</code>字符串正则表达式匹配</p>
 <p><code>(n)-[:KNOWS]-&gt;(m)</code>确保模式至少有一个匹配。</p>
 <p><code>NOT (n)-[:KNOWS]-&gt;(m)</code>从结果中排除与（n） -  [：KNOWS]  - &gt;（m）的匹配。</p>
 <p><code>n.property IN [$value1, $value2]</code>检查列表中是否存在元素。</p>
-<h2 id="List-Predicates"><a href="#List-Predicates" class="headerlink" title="List Predicates"></a>List Predicates</h2><p><code>all(x IN coll WHERE exists(x.property))</code>如果列表中的所有元素的谓词为true，则返回true。</p>
+<h2 id="List-Predicates">List Predicates</h2>
+<p><code>all(x IN coll WHERE exists(x.property))</code>如果列表中的所有元素的谓词为true，则返回true。</p>
 <p><code>any(x IN coll WHERE exists(x.property))</code>如果谓词对于列表中的至少一个元素为true，则返回true。</p>
 <p><code>none(x IN coll WHERE exists(x.property))</code>如果列表中的所有元素的谓词为false，则返回true。</p>
 <p><code>single(x IN coll WHERE exists(x.property))</code>如果谓词对于列表中的一个元素为true，则返回true。</p>
-<h2 id="CASE"><a href="#CASE" class="headerlink" title="CASE"></a>CASE</h2><p><code>CASE n.eyes WHEN &#39;blue&#39; THEN 1 WHEN &#39;brown&#39; THEN 2 ELSE 3 END</code>从匹配的WHEN值返回THEN值。 ELSE值是可选的，如果缺少则替换为null。</p>
-<p><code>CASE WHEN n.eyes = &#39;blue&#39; THEN 1 WHEN n.age &lt; 40 THEN 2 ELSE 3 END</code>将第一个WHEN谓词评估中的THEN值返回true。 按顺序评估谓词。</p>
-<h2 id="List-Expressions"><a href="#List-Expressions" class="headerlink" title="List Expressions"></a>List Expressions</h2><p><code>size($list)</code>列表中的元素数量。</p>
+<h2 id="CASE">CASE</h2>
+<p><code>CASE n.eyes WHEN 'blue' THEN 1 WHEN 'brown' THEN 2 ELSE 3 END</code>从匹配的WHEN值返回THEN值。 ELSE值是可选的，如果缺少则替换为null。</p>
+<p><code>CASE WHEN n.eyes = 'blue' THEN 1 WHEN n.age &lt; 40 THEN 2 ELSE 3 END</code>将第一个WHEN谓词评估中的THEN值返回true。 按顺序评估谓词。</p>
+<h2 id="List-Expressions">List Expressions</h2>
+<p><code>size($list)</code>列表中的元素数量。</p>
 <p><code>reverse($list)</code>反转列表中元素的顺序。</p>
 <p><code>head($list), last($list), tail($list)</code>head（）返回第一个，last（）列表的最后一个元素。 tail（）返回除第一个元素之外的所有元素。 对于空列表，所有返回null。</p>
 <p><code>[x IN list WHERE x.prop &lt;&gt; $value | x.prop]</code>过滤器和提取物的组合以简洁的表示法。</p>
 <p><code>extract(x IN list | x.prop)</code>原始列表中每个元素的表达式值列表。</p>
 <p><code>filter(x IN list WHERE x.prop &lt;&gt; $value)</code>谓词为true的元素的筛选列表。</p>
 <p><code>reduce(s = &quot;&quot;, x IN list | s + x.prop)</code>评估列表中每个元素的表达式，累积结果。</p>
-<h2 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h2><p><code>coalesce(n.property, $defaultValue)</code>第一个非null表达式。</p>
+<h2 id="Functions">Functions</h2>
+<p><code>coalesce(n.property, $defaultValue)</code>第一个非null表达式。</p>
 <p><code>timestamp()</code>自UTC时间1970年1月1日午夜起的毫秒数。</p>
 <p><code>id(nodeOrRelationship)</code>关系或节点的内部标识。</p>
 <p><code>toInteger($expr)</code>如果可能，将给定输入转换为整数; 否则返回null。</p>
@@ -577,17 +644,20 @@
 <p><code>toBoolean($expr)</code>如果可能，将给定输入转换为布尔值; 否则返回null。</p>
 <p><code>keys($expr)</code>返回节点，关系或映射的属性名称的字符串表示形式的列表。</p>
 <p><code>properties(&#123;expr&#125;)</code>返回包含节点或关系的所有属性的映射。</p>
-<h2 id="Path-Functions"><a href="#Path-Functions" class="headerlink" title="Path Functions"></a>Path Functions</h2><p><code>length(path)</code>路径中的关系数。</p>
+<h2 id="Path-Functions">Path Functions</h2>
+<p><code>length(path)</code>路径中的关系数。</p>
 <p><code>nodes(path)</code>路径中的节点作为列表。</p>
 <p><code>relationships(path)</code>路径中的关系作为列表。</p>
 <p><code>extract(x IN nodes(path) | x.prop)</code>从路径中的节点提取属性。</p>
-<h2 id="Spatial-Functions"><a href="#Spatial-Functions" class="headerlink" title="Spatial Functions"></a>Spatial Functions</h2><p><code>point(&#123;x: $x, y: $y&#125;)</code>返回2D笛卡尔坐标系中的点。</p>
+<h2 id="Spatial-Functions">Spatial Functions</h2>
+<p><code>point(&#123;x: $x, y: $y&#125;)</code>返回2D笛卡尔坐标系中的点。</p>
 <p><code>point(&#123;latitude: $y, longitude: $x&#125;)</code>返回2D地理坐标系中的点，坐标以十进制度指定。</p>
 <p><code>point(&#123;x: $x, y: $y, z: $z&#125;)</code>返回3D笛卡尔坐标系中的点。</p>
 <p><code>point(&#123;latitude: $y, longitude: $x, height: $z&#125;)</code>返回3D地理坐标系中的点，纬度和经度以十进制度表示，高度以米为单位。</p>
 <p><code>distance(point(&#123;x: $x1, y: $y1&#125;), point(&#123;x: $x2, y: $y2&#125;))</code>返回表示两点之间的线性距离的浮点数。 返回的单位将与点坐标的单位相同，并且它将适用于2D和3D笛卡尔点。</p>
 <p><code>distance(point(&#123;latitude: $y1, longitude: $x1&#125;), point(&#123;latitude: $y2, longitude: $x2&#125;))</code>返回两点之间的测地距离（以米为单位）。 它也可以用于3D地理点。</p>
-<h2 id="Temporal-Functions"><a href="#Temporal-Functions" class="headerlink" title="Temporal Functions"></a>Temporal Functions</h2><p><code>date(&quot;2018-04-05&quot;)</code>返回从字符串解析的日期。</p>
+<h2 id="Temporal-Functions">Temporal Functions</h2>
+<p><code>date(&quot;2018-04-05&quot;)</code>返回从字符串解析的日期。</p>
 <p><code>localtime(&quot;12:45:30.25&quot;)</code>返回没有时区的时间。</p>
 <p><code>time(&quot;12:45:30.25+01:00&quot;)</code>返回指定时区的时间。</p>
 <p><code>localdatetime(&quot;2018-04-05T12:34:00&quot;)</code>返回没有时区的日期时间。</p>
@@ -596,14 +666,17 @@
 <p><code>date(&#123;year: &#123;year&#125;, month: &#123;month&#125;, day: &#123;day&#125;&#125;)</code>还可以使用命名组件的映射来调用所有时间函数。 此示例返回年，月和日组件的日期。 每个函数都支持一组不同的可能组件。</p>
 <p><code>datetime(&#123;date: &#123;date&#125;, time: &#123;time&#125;&#125;)</code>可以通过组合其他类型来创建时间类型。 此示例从日期和时间创建日期时间。</p>
 <p><code>date(&#123;date: &#123;datetime&#125;, day: 5&#125;)</code>可以通过从更复杂的类型中进行选择以及覆盖单个组件来创建时间类型。 此示例通过从日期时间中进行选择以及覆盖日期组件来创建日期。</p>
-<p><code>WITH date(&quot;2018-04-05&quot;) AS d</code>返回d.year，d.month，d.day，d.week，d.dayOfWeek<br>访问器允许提取时间类型的组件。</p>
-<h2 id="Duration-Functions"><a href="#Duration-Functions" class="headerlink" title="Duration Functions"></a>Duration Functions</h2><p><code>duration(&quot;P1Y2M10DT12H45M30.25S&quot;)</code>返回1年，2个月，10天，12小时，45分钟和30.25秒的持续时间。</p>
+<p><code>WITH date(&quot;2018-04-05&quot;) AS d</code>返回d.year，d.month，d.day，d.week，d.dayOfWeek<br>
+访问器允许提取时间类型的组件。</p>
+<h2 id="Duration-Functions">Duration Functions</h2>
+<p><code>duration(&quot;P1Y2M10DT12H45M30.25S&quot;)</code>返回1年，2个月，10天，12小时，45分钟和30.25秒的持续时间。</p>
 <p><code>duration.between($date1,$date2)</code>返回两个临时实例之间的持续时间。</p>
 <p><code>WITH duration(&quot;P1Y2M10DT12H45M&quot;) AS d RETURN d.years, d.months, d.days, d.hours, d.minutes</code>返回1年，14个月，10天，12小时和765分钟。</p>
 <p><code>WITH duration(&quot;P1Y2M10DT12H45M&quot;) AS d RETURN d.years, d.monthsOfYear, d.days, d.hours, d.minutesOfHour</code>返回1年，2个月，10天，12小时45分钟。</p>
 <p><code>date(&quot;2015-01-01&quot;) + duration(&quot;P1Y1M1D&quot;)</code>返回2016-02-02的日期。 也可以从时间实例中减去持续时间。</p>
 <p><code>duration(&quot;PT30S&quot;) * 10</code>返回5分钟的持续时间。 也可以将持续时间除以数字。</p>
-<h2 id="Mathematical-Functions"><a href="#Mathematical-Functions" class="headerlink" title="Mathematical Functions"></a>Mathematical Functions</h2><p><code>abs($expr)</code>绝对值。</p>
+<h2 id="Mathematical-Functions">Mathematical Functions</h2>
+<p><code>abs($expr)</code>绝对值。</p>
 <p><code>rand()</code>返回0（包括）到1（不包括），[0,1）范围内的随机数。 返回每个调用的新值。 也可用于选择子集或随机排序。</p>
 <p><code>round($expr)</code>舍入到最接近的整数; ceil（）和floor（）向上或向下查找下一个整数。</p>
 <p><code>sqrt($expr)</code>平方根。</p>
@@ -611,7 +684,8 @@
 <p><code>sin($expr)</code>三角函数还包括cos（），tan（），cot（），asin（），acos（），atan（），atan2（）和hasrsin（）。 如果没有另外指定，三角函数的所有参数都应该是弧度。</p>
 <p><code>degrees($expr), radians($expr), pi()</code>将弧度转换为度数; 使用radians（）作为反向，使用pi（）作为π。</p>
 <p><code>log10($expr), log($expr), exp($expr), e()</code>对数基数10，自然对数，e到参数的幂，以及e的值。</p>
-<h2 id="String-Functions"><a href="#String-Functions" class="headerlink" title="String Functions"></a>String Functions</h2><p><code>toString($expression)</code>表达式的字符串表示形式。</p>
+<h2 id="String-Functions">String Functions</h2>
+<p><code>toString($expression)</code>表达式的字符串表示形式。</p>
 <p><code>replace($original, $search, $replacement)</code>用替换替换所有出现的搜索。 所有参数都必须是表达式。</p>
 <p><code>substring($original, $begin, $subLength)</code>获取字符串的一部分。 subLength参数是可选的。</p>
 <p><code>left($original, $subLength), right($original, $subLength)</code>字符串的第一部分。 字符串的最后一部分。</p>
@@ -620,34 +694,63 @@
 <p><code>split($original, $delimiter)</code>将字符串拆分为字符串列表。</p>
 <p><code>reverse($original)</code>反转一个字符串。</p>
 <p><code>size($string)</code>计算字符串中的字符数。</p>
-<h2 id="Relationship-Functions"><a href="#Relationship-Functions" class="headerlink" title="Relationship Functions"></a>Relationship Functions</h2><p><code>type(a_relationship)</code>关系类型的字符串表示形式。</p>
+<h2 id="Relationship-Functions">Relationship Functions</h2>
+<p><code>type(a_relationship)</code>关系类型的字符串表示形式。</p>
 <p><code>startNode(a_relationship)</code>关系的起始节点。</p>
 <p><code>endNode(a_relationship)</code>关系的结束节点。</p>
 <p><code>id(a_relationship)</code>关系的内部id。</p>
-<h2 id="Aggregating-Functions"><a href="#Aggregating-Functions" class="headerlink" title="Aggregating Functions"></a>Aggregating Functions</h2><p><code>count(*)</code>匹配行的数量。</p>
+<h2 id="Aggregating-Functions">Aggregating Functions</h2>
+<p><code>count(*)</code>匹配行的数量。</p>
 <p><code>count(variable)</code>非空值的数量。</p>
 <p><code>count(DISTINCT variable)</code>所有聚合函数也采用DISTINCT运算符，该运算符从值中删除重复项。</p>
 <p><code>collect(n.property)</code>从值列出，忽略null。</p>
 <p><code>sum(n.property)</code>求和数值。 类似的函数是avg（），min（），max（）。</p>
 <p><code>percentileDisc(n.property, $percentile)</code>离散百分位数。 连续百分位数是百分位数（）。 百分位数参数从0.0到1.0。</p>
 <p><code>stDev(n.property)</code>人口样本的标准差。 对于整个人口使用stDevP（）。</p>
-<h2 id="INDEX"><a href="#INDEX" class="headerlink" title="INDEX"></a>INDEX</h2><p><code>CREATE INDEX ON :Person(name)</code>在标签Person和property name上创建索引。</p>
-<p><code>MATCH (n:Person) WHERE n.name = $value</code>索引可以自动用于相等比较。 请注意，例如toLower（n.name）&#x3D; $ value将不使用索引。</p>
+<h2 id="INDEX">INDEX</h2>
+<p><code>CREATE INDEX ON :Person(name)</code>在标签Person和property name上创建索引。</p>
+<p><code>MATCH (n:Person) WHERE n.name = $value</code>索引可以自动用于相等比较。 请注意，例如toLower（<a target="_blank" rel="noopener" href="http://n.name">n.name</a>）= $ value将不使用索引。</p>
 <p><code>MATCH (n:Person) WHERE n.name IN [$value]</code>索引可以自动用于IN列表检查。</p>
 <p><code>MATCH (n:Person) USING INDEX n:Person(name) WHERE n.name = $value</code>当Cypher使用次优索引或应使用多个索引时，可以强制执行索引使用。</p>
 <p><code>DROP INDEX ON :Person(name)</code>删除标签Person和property name上的索引。</p>
-<h2 id="CONSTRAINT"><a href="#CONSTRAINT" class="headerlink" title="CONSTRAINT"></a>CONSTRAINT</h2><p><code>CREATE CONSTRAINT ON (p:Person) ASSERT p.name IS UNIQUE</code>在标签Person和属性名称上创建唯一的属性约束。 如果使用已存在的名称更新或创建具有该标签的任何其他节点，则写入操作将失败。 此约束将创建一个附带索引。</p>
+<h2 id="CONSTRAINT">CONSTRAINT</h2>
+<p><code>CREATE CONSTRAINT ON (p:Person) ASSERT p.name IS UNIQUE</code>在标签Person和属性名称上创建唯一的属性约束。 如果使用已存在的名称更新或创建具有该标签的任何其他节点，则写入操作将失败。 此约束将创建一个附带索引。</p>
 <p><code>DROP CONSTRAINT ON (p:Person) ASSERT p.name IS UNIQUE</code>删除标签Person和property name上的唯一约束和索引。</p>
 <p><code>CREATE CONSTRAINT ON (p:Person) ASSERT exists(p.name)</code>（★）在标签Person和属性名称上创建节点属性存在约束。 如果创建具有该标签的节点而没有名称，或者如果从具有Person标签的现有节点中删除name属性，则写入操作将失败。</p>
 <p><code>DROP CONSTRAINT ON (p:Person) ASSERT exists(p.name)</code>（★）删除标签Person和property name上的node属性存在约束。</p>
 <p><code>CREATE CONSTRAINT ON ()-[l:LIKED]-() ASSERT exists(l.when)</code>（★）在类型LIKED和属性时创建关系属性存在约束。 如果在没有when的情况下创建了与该类型的关系，或者如果从具有LIKED类型的现有关系中删除了when属性，则写入操作将失败。</p>
 <p><code>DROP CONSTRAINT ON ()-[l:LIKED]-() ASSERT exists(l.when)</code>（★）在类型LIKED和属性时删除关系属性存在约束。</p>
-<p><code>CREATE CONSTRAINT ON (p:Person) ASSERT (p.firstname, p.surname) IS NODE KEY</code>（★）在标签Person和properties firstname和surname上创建一个Node Key约束。 如果创建具有该标签的节点而没有firstname和surname，或者两者的组合不唯一，或者如果修改了具有Person标签的现有节点上的firstname和&#x2F;或surname标签以违反这些约束，则写入 操作将失败。</p>
+<p><code>CREATE CONSTRAINT ON (p:Person) ASSERT (p.firstname, p.surname) IS NODE KEY</code>（★）在标签Person和properties firstname和surname上创建一个Node Key约束。 如果创建具有该标签的节点而没有firstname和surname，或者两者的组合不唯一，或者如果修改了具有Person标签的现有节点上的firstname和/或surname标签以违反这些约束，则写入 操作将失败。</p>
 <p><code>DROP CONSTRAINT ON (p:Person) ASSERT (p.firstname, p.surname) IS NODE KEY</code>（★）删除标签Person和properties firstname和surname上的Node Key约束。</p>
 <p><span style="color:red">PS:（★）为Neo4j企业版提供的功能。</span></p>
-<h2 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h2><ul>
+<h2 id="Performance">Performance</h2>
+<ul>
 <li>尽可能使用参数而不是文字。 这允许Cypher重用您的查询，而不必解析和构建新的执行计划。</li>
 <li>始终为可变长度模式设置上限。 很容易让查询疯狂并错误地触摸图中的所有节点。</li>
 <li>仅返回您需要的数据。 避免返回整个节点和关系 - 而是选择所需的数据并仅返回该数据。</li>
 </ul>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:kinomu@sina.com">Aspirin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2018/09/12/Neo4j%20Cypher%20%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83/">http://example.com/2018/09/12/Neo4j%20Cypher%20%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Cruising</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CQL/">CQL</a></div><div class="post_share"><div class="social-share" data-image="https://s1.ax1x.com/2022/04/14/LlCVFx.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechart_460_530.png" target="_blank"><img class="post-qr-code-img" src="/img/wechart_460_530.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay_460_530.png" target="_blank"><img class="post-qr-code-img" src="/img/alipay_460_530.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2018/09/13/%E7%88%AC%E8%99%AB%20-%20%E8%B1%86%E7%93%A3%20Top%20250/"><img class="prev-cover" src="https://s1.ax1x.com/2022/04/14/LlCVFx.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">爬虫 - 豆瓣 Top 250</div></div></a></div><div class="next-post pull-right"><a href="/2018/09/06/Neo4j%20-%20Cypher%20Query%20Language%20-%20%E6%8C%87%E5%BC%95/"><img class="next-cover" src="https://s1.ax1x.com/2022/04/14/LlCVFx.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Neo4j - Cypher Query Language - 入门指引</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2018/09/06/Neo4j%20-%20Cypher%20Query%20Language%20-%20%E6%8C%87%E5%BC%95/" title="Neo4j - Cypher Query Language - 入门指引"><img class="cover" src="https://s1.ax1x.com/2022/04/14/LlCVFx.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-09-06</div><div class="title">Neo4j - Cypher Query Language - 入门指引</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Read-Query-Structure"><span class="toc-number">1.</span> <span class="toc-text">Read Query Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MATCH"><span class="toc-number">2.</span> <span class="toc-text">MATCH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WHERE"><span class="toc-number">3.</span> <span class="toc-text">WHERE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RETURN"><span class="toc-number">4.</span> <span class="toc-text">RETURN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WITH"><span class="toc-number">5.</span> <span class="toc-text">WITH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UNION"><span class="toc-number">6.</span> <span class="toc-text">UNION</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Write-Only-Query-Structure"><span class="toc-number">7.</span> <span class="toc-text">Write-Only Query Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Read-Write-Query-Structure"><span class="toc-number">8.</span> <span class="toc-text">Read-Write Query Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CREATE"><span class="toc-number">9.</span> <span class="toc-text">CREATE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SET"><span class="toc-number">10.</span> <span class="toc-text">SET</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MERGE"><span class="toc-number">11.</span> <span class="toc-text">MERGE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DELETE"><span class="toc-number">12.</span> <span class="toc-text">DELETE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#REMOVE"><span class="toc-number">13.</span> <span class="toc-text">REMOVE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FOREACH"><span class="toc-number">14.</span> <span class="toc-text">FOREACH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CALL"><span class="toc-number">15.</span> <span class="toc-text">CALL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Import"><span class="toc-number">16.</span> <span class="toc-text">Import</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Operators"><span class="toc-number">17.</span> <span class="toc-text">Operators</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">18.</span> <span class="toc-text">null</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Patterns"><span class="toc-number">19.</span> <span class="toc-text">Patterns</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lists"><span class="toc-number">20.</span> <span class="toc-text">Lists</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maps"><span class="toc-number">21.</span> <span class="toc-text">Maps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Predicates"><span class="toc-number">22.</span> <span class="toc-text">Predicates</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#List-Predicates"><span class="toc-number">23.</span> <span class="toc-text">List Predicates</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CASE"><span class="toc-number">24.</span> <span class="toc-text">CASE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#List-Expressions"><span class="toc-number">25.</span> <span class="toc-text">List Expressions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Functions"><span class="toc-number">26.</span> <span class="toc-text">Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Path-Functions"><span class="toc-number">27.</span> <span class="toc-text">Path Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spatial-Functions"><span class="toc-number">28.</span> <span class="toc-text">Spatial Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Temporal-Functions"><span class="toc-number">29.</span> <span class="toc-text">Temporal Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Duration-Functions"><span class="toc-number">30.</span> <span class="toc-text">Duration Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mathematical-Functions"><span class="toc-number">31.</span> <span class="toc-text">Mathematical Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String-Functions"><span class="toc-number">32.</span> <span class="toc-text">String Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Relationship-Functions"><span class="toc-number">33.</span> <span class="toc-text">Relationship Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Aggregating-Functions"><span class="toc-number">34.</span> <span class="toc-text">Aggregating Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#INDEX"><span class="toc-number">35.</span> <span class="toc-text">INDEX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CONSTRAINT"><span class="toc-number">36.</span> <span class="toc-text">CONSTRAINT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Performance"><span class="toc-number">37.</span> <span class="toc-text">Performance</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://s1.ax1x.com/2022/04/14/LlCVFx.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Aspirin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:kinomu@sina.com">Aspirin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2018/09/12/Neo4j%20Cypher%20%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83/">http://example.com/2018/09/12/Neo4j%20Cypher%20%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Cruising</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CQL/">CQL</a></div><div class="post_share"><div class="social-share" data-image="https://s1.ax1x.com/2022/04/14/LlCVFx.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechart_460_530.png" target="_blank"><img class="post-qr-code-img" src="/img/wechart_460_530.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay_460_530.png" target="_blank"><img class="post-qr-code-img" src="/img/alipay_460_530.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2018/09/13/%E7%88%AC%E8%99%AB%20-%20%E8%B1%86%E7%93%A3%20Top%20250/"><img class="prev-cover" src="https://s1.ax1x.com/2022/04/14/LlCVFx.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">爬虫 - 豆瓣 Top 250</div></div></a></div><div class="next-post pull-right"><a href="/2018/09/06/Neo4j%20-%20Cypher%20Query%20Language%20-%20%E6%8C%87%E5%BC%95/"><img class="next-cover" src="https://s1.ax1x.com/2022/04/14/LlCVFx.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Neo4j - Cypher Query Language - 入门指引</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2018/09/06/Neo4j%20-%20Cypher%20Query%20Language%20-%20%E6%8C%87%E5%BC%95/" title="Neo4j - Cypher Query Language - 入门指引"><img class="cover" src="https://s1.ax1x.com/2022/04/14/LlCVFx.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-09-06</div><div class="title">Neo4j - Cypher Query Language - 入门指引</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Read-Query-Structure"><span class="toc-number">1.</span> <span class="toc-text">Read Query Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MATCH"><span class="toc-number">2.</span> <span class="toc-text">MATCH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WHERE"><span class="toc-number">3.</span> <span class="toc-text">WHERE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RETURN"><span class="toc-number">4.</span> <span class="toc-text">RETURN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WITH"><span class="toc-number">5.</span> <span class="toc-text">WITH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UNION"><span class="toc-number">6.</span> <span class="toc-text">UNION</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Write-Only-Query-Structure"><span class="toc-number">7.</span> <span class="toc-text">Write-Only Query Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Read-Write-Query-Structure"><span class="toc-number">8.</span> <span class="toc-text">Read-Write Query Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CREATE"><span class="toc-number">9.</span> <span class="toc-text">CREATE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SET"><span class="toc-number">10.</span> <span class="toc-text">SET</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MERGE"><span class="toc-number">11.</span> <span class="toc-text">MERGE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DELETE"><span class="toc-number">12.</span> <span class="toc-text">DELETE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#REMOVE"><span class="toc-number">13.</span> <span class="toc-text">REMOVE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FOREACH"><span class="toc-number">14.</span> <span class="toc-text">FOREACH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CALL"><span class="toc-number">15.</span> <span class="toc-text">CALL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Import"><span class="toc-number">16.</span> <span class="toc-text">Import</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Operators"><span class="toc-number">17.</span> <span class="toc-text">Operators</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">18.</span> <span class="toc-text">null</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Patterns"><span class="toc-number">19.</span> <span class="toc-text">Patterns</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lists"><span class="toc-number">20.</span> <span class="toc-text">Lists</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maps"><span class="toc-number">21.</span> <span class="toc-text">Maps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Predicates"><span class="toc-number">22.</span> <span class="toc-text">Predicates</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#List-Predicates"><span class="toc-number">23.</span> <span class="toc-text">List Predicates</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CASE"><span class="toc-number">24.</span> <span class="toc-text">CASE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#List-Expressions"><span class="toc-number">25.</span> <span class="toc-text">List Expressions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Functions"><span class="toc-number">26.</span> <span class="toc-text">Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Path-Functions"><span class="toc-number">27.</span> <span class="toc-text">Path Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spatial-Functions"><span class="toc-number">28.</span> <span class="toc-text">Spatial Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Temporal-Functions"><span class="toc-number">29.</span> <span class="toc-text">Temporal Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Duration-Functions"><span class="toc-number">30.</span> <span class="toc-text">Duration Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mathematical-Functions"><span class="toc-number">31.</span> <span class="toc-text">Mathematical Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String-Functions"><span class="toc-number">32.</span> <span class="toc-text">String Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Relationship-Functions"><span class="toc-number">33.</span> <span class="toc-text">Relationship Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Aggregating-Functions"><span class="toc-number">34.</span> <span class="toc-text">Aggregating Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#INDEX"><span class="toc-number">35.</span> <span class="toc-text">INDEX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CONSTRAINT"><span class="toc-number">36.</span> <span class="toc-text">CONSTRAINT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Performance"><span class="toc-number">37.</span> <span class="toc-text">Performance</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://s1.ax1x.com/2022/04/14/LlCVFx.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Aspirin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

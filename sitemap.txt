@@ -18,14 +18,14 @@ http://example.com/tags/Algorithm/
 http://example.com/tags/Markdown/
 http://example.com/tags/CQL/
 http://example.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/
-http://example.com/tags/KG/
 http://example.com/tags/%E7%88%AC%E8%99%AB/
 http://example.com/tags/Python/
 http://example.com/tags/%E6%95%B0%E6%8D%AE/
+http://example.com/tags/KG/
 http://example.com/categories/Axure/
 http://example.com/categories/Machine-Learning/
 http://example.com/categories/Markdown/
 http://example.com/categories/Cypher/
 http://example.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/
-http://example.com/categories/Knowledge-Graph/
 http://example.com/categories/Python/
+http://example.com/categories/Knowledge-Graph/
